@@ -1,0 +1,54 @@
+{
+  "teamName": "Slide & The Family Stone",
+  "season": "2025-2026",
+  "players": [
+    {
+      "id": 1,
+      "name": "Brad Lowe",
+      "position": "Skip",
+      "yearsPlaying": 8,
+      "bio": "The brains of the operation.",
+      "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      "hometown": "San Francisco, CA",
+      "occupation": "Engineer",
+      "favoriteShot": "Guard (lol)",
+      "favoriteCurler": "Tracy Fleury"
+    },
+    {
+      "id": 2,
+      "name": "Kerry Plowman",
+      "position": "Third",
+      "yearsPlaying": 5,
+      "bio": "2nd-in-command.",
+      "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      "hometown": "Edmonton, AB",
+      "occupation": "Engineer",
+      "favoriteShot": "Come-around freeze",
+      "favoriteCurler": "Kevin Martin"
+    },
+    {
+      "id": 3,
+      "name": "David Hignell",
+      "position": "Second",
+      "yearsPlaying": 3,
+      "bio": "Marpoles General Manager. Sweeping machine.",
+      "photo": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      "hometown": "Vancouver, BC",
+      "occupation": "Curling Club GM",
+      "favoriteShot": "Takeout",
+      "favoriteCurler": "Brad Lowe"
+    },
+    {
+      "id": 4,
+      "name": "Adam Hauck",
+      "position": "Lead",
+      "yearsPlaying": 4,
+      "bio": "Fun to be around.",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      "hometown": "Walkerton, ON",
+      "occupation": "Web Developer",
+      "favoriteShot": "Angle raise",
+      "favoriteCurler": "Guy Hemmings"
+    }
+  ]
+}

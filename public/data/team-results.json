@@ -1,0 +1,59 @@
+{
+  "games": [
+    {
+        "date": "2025-09-15",
+        "opponent": "Throw Back Team",
+        "box": "B",
+        "sheet": "3",
+        "time": "9:00 PM",
+        "competition": "Monday Open League",
+        "score": "",
+        "result": "",
+        "record": ""
+    },
+    {
+        "date": "2025-09-22",
+        "opponent": "CHER",
+        "box": "B",
+        "sheet": "6",
+        "time": "6:40 PM",
+        "competition": "Monday Open League",
+        "score": "",
+        "result": "",
+        "record": ""
+    },
+    {
+        "date": "2025-09-29",
+        "opponent": "Hamilton",
+        "box": "B",
+        "sheet": "5",
+        "time": "9:00 PM",
+        "competition": "Monday Open League",
+        "score": "",
+        "result": "",
+        "record": ""
+    },
+    {
+        "date": "2025-10-06",
+        "opponent": "Hits & Giggles",
+        "box": "B",
+        "sheet": "2",
+        "time": "6:40 PM",
+        "competition": "Monday Open League",
+        "score": "",
+        "result": "",
+        "record": ""
+    },
+    {
+        "date": "2025-10-20",
+        "opponent": "Sweep Potatoes",
+        "box": "B",
+        "sheet": "1",
+        "time": "9:00 PM",
+        "competition": "Monday Open League",
+        "score": "",
+        "result": "",
+        "record": ""
+    }
+  ]
+}
