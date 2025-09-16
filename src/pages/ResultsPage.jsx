@@ -52,12 +52,12 @@ if (error) return <div>Error: {error.message}</div>;
                     <tbody>
                         {results.games.map((game, index) => (
                             <tr key={index}>
-                                <td>{game.date}</td>
-                                <td>{game.opponent}</td>
-                                <td>{game.sheet}</td>
-                                <td>{game.time}</td>
-                                <td>{game.competition}</td>
-                                <td>{game.box}</td>
+                                <td>{game.date === '' || game.date == null ? '--' : game.date}</td>
+                                <td>{game.opponent === '' || game.opponent == null ? '--' : game.opponent}</td>
+                                <td>{game.sheet === '' || game.sheet == null ? '--' : game.sheet}</td>
+                                <td>{game.time === '' || game.time == null ? '--' : game.time}</td>
+                                <td>{game.competition === '' || game.competition == null ? '--' : game.competition}</td>
+                                <td>{game.box === '' || game.box == null ? '--' : game.box}</td>
                                 <td>{game.score === '' || game.score == null ? '--' : game.score}</td>
                                 <td>{game.result === '' || game.result == null ? '--' : game.result}</td>
                                 <td>{game.record === '' || game.record == null ? '--' : game.record}</td>
