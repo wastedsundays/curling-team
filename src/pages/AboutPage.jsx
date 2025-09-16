@@ -32,7 +32,7 @@ if (error) return <div>Error: {error.message}</div>;
 
         <div>
             <section>
-                <img src='https://picsum.photos/1800/800' alt='placeholder image' />
+                <img src={team.image_url} alt={team.image_alt} />
                 <h1>Marpole Soul Men</h1>
                 <h2>Everybody Is A Star</h2>
             </section>
