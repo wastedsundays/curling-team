@@ -1,32 +1,45 @@
 import { useEffect, useState } from 'react';
+import PlayerCard from '../components/PlayerCard/PlayerCard';
+import PlayerModal from '../components/PlayerCard/PlayerModal';
 
 const AboutPage = () => {
 
-const [team, setTeam] = useState(null);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(null);
+    const [selectedPlayer, setSelectedPlayer] = useState(null);
 
-useEffect(() => {
-    const fetchTeamData = async () => {
-        try {
-            const response = await fetch('/data/team-info.json');
-            if (!response.ok) {
-                throw new Error('Failed to fetch team info');
+    const [team, setTeam] = useState(null);
+    const [players, setPlayers] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const [teamRes, playersRes] = await Promise.all([
+                    fetch('/data/team-info.json'),
+                    fetch('/data/team-players.json')
+                ]);
+
+                if (!teamRes.ok || !playersRes.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const [teamData, playersData] = await Promise.all([
+                    teamRes.json(),
+                    playersRes.json()
+                ]);
+                setTeam(teamData);
+                setPlayers(playersData);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
             }
-            const teamData = await response.json();
-            setTeam(teamData);
-        } catch (error) {
-            setError(error);
-        } finally {
-            setLoading(false);
-        }
-    };
+        };
+        fetchData();
+    }, []);
 
-    fetchTeamData();
-}, []);
-
-if (loading) return <div>Loading...</div>;
-if (error) return <div>Error: {error.message}</div>;
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
+    console.log(players);
 
     return (
 
@@ -56,27 +69,18 @@ if (error) return <div>Error: {error.message}</div>;
             <section>
                 <h2>Meet the Team</h2>
                 <div className='players-grid'>
-                    <article>
-                        <img src='https://picsum.photos/250/150' alt='placeholder image' />
-                        <h3>Brad Lowe</h3>
-                        <p>Skip</p>
-                    </article>
-                    <article>
-                        <img src='https://picsum.photos/250/150' alt='placeholder image' />
-                        <h3>Kerry Plowman</h3>
-                        <p>Third</p>
-                    </article>
-                    <article>
-                        <img src='https://picsum.photos/250/150' alt='placeholder image' />
-                        <h3>David Hignell</h3>
-                        <p>Second</p>
-                    </article>
-                    <article>
-                        <img src='https://picsum.photos/250/150' alt='placeholder image' />
-                        <h3>Adam Hauck</h3>
-                        <p>Lead</p>
-                    </article>
+                    {players.players.map((player) => (
+                        <PlayerCard
+                            key={player.id}
+                            {...player}
+                            onClick={() => setSelectedPlayer(player)}
+                        />
+                    ))}
+
                 </div>
+                {selectedPlayer && (
+                    <PlayerModal player={selectedPlayer} onClose={() => setSelectedPlayer(null)} />
+                )}
             </section>
             <section>
                 <h2>Recent Achievements</h2>
