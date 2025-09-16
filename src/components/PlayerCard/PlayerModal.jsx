@@ -5,7 +5,7 @@ const PlayerModal = ({ player, onClose }) => {
     const {
         name,
         position,
-        photo,
+        largePhoto,
         yearsPlaying,
         bio,
         hometown,
@@ -25,7 +25,7 @@ const PlayerModal = ({ player, onClose }) => {
                 transition={{ duration: 0.3 }}
             >
                 <button className="modal-close" onClick={onClose}>✕</button>
-                <img src={photo || '/placeholder-avatar.jpg'} alt={`${name}`} />
+                <img src={largePhoto || '/placeholder-avatar.jpg'} alt={`${name}`} />
                 <h3>{name}</h3>
                 <p>{position}</p>
                 <p>{bio}</p>
