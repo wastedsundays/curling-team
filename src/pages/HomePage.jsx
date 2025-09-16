@@ -4,7 +4,7 @@ const HomePage = () => {
   return (
     <div>
         <section>
-            <img src='https://picsum.photos/1800/800' alt='placeholder image' />
+            <img src='https://adamh.ca/slidefamilycurling/images/ai_team_photo.webp' alt='placeholder image' />
             <h1>Slide & The Family Stone</h1>
             <h2 className='step-3'>Curling Funkdamentals</h2>
             <div className='cta-button-group'>
