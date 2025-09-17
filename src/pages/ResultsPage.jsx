@@ -32,10 +32,13 @@ if (error) return <div>Error: {error.message}</div>;
 
     return (
         <div>
-            <img src='https://adamh.ca/slidefamilycurling/images/marpole_cc.webp' alt='A shot of Marpole Curling Club' />
-            <h1>Results</h1>
+            <section className='hero-section'>
+                <img className='hero-image' src='https://adamh.ca/slidefamilycurling/images/marpole_cc.webp' alt='A shot of Marpole Curling Club' />
+                <h1 className='hero-title'>Schedule & Results</h1>
+            </section>
+            <section className='section-spacing dark-bg-transparent'>
             <div>
-                <table>
+                <table className='schedule-table'>
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -52,20 +55,21 @@ if (error) return <div>Error: {error.message}</div>;
                     <tbody>
                         {results.games.map((game, index) => (
                             <tr key={index}>
-                                <td>{game.date === '' || game.date == null ? '--' : game.date}</td>
-                                <td>{game.opponent === '' || game.opponent == null ? '--' : game.opponent}</td>
-                                <td>{game.sheet === '' || game.sheet == null ? '--' : game.sheet}</td>
-                                <td>{game.time === '' || game.time == null ? '--' : game.time}</td>
-                                <td>{game.competition === '' || game.competition == null ? '--' : game.competition}</td>
-                                <td>{game.box === '' || game.box == null ? '--' : game.box}</td>
-                                <td>{game.score === '' || game.score == null ? '--' : game.score}</td>
-                                <td>{game.result === '' || game.result == null ? '--' : game.result}</td>
-                                <td>{game.record === '' || game.record == null ? '--' : game.record}</td>
+                                <td data-label='Date: '>{game.date === '' || game.date == null ? '--' : game.date}</td>
+                                <td data-label='Opponent: '>{game.opponent === '' || game.opponent == null ? '--' : game.opponent}</td>
+                                <td data-label='Sheet: '>{game.sheet === '' || game.sheet == null ? '--' : game.sheet}</td>
+                                <td data-label='Time: '>{game.time === '' || game.time == null ? '--' : game.time}</td>
+                                <td data-label='Competition: '>{game.competition === '' || game.competition == null ? '--' : game.competition}</td>
+                                <td data-label='Box: '>{game.box === '' || game.box == null ? '--' : game.box}</td>
+                                <td data-label='Score: '>{game.score === '' || game.score == null ? '--' : game.score}</td>
+                                <td data-label='Result: '>{game.result === '' || game.result == null ? '--' : game.result}</td>
+                                <td data-label='Record: '>{game.record === '' || game.record == null ? '--' : game.record}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
+            </section>
         </div>
     );
 };

@@ -6,7 +6,7 @@
 }
 
 .section-spacing {
-    padding: clamp(5rem, 5vw + 2rem, 8rem) 0;
+    padding: clamp(5rem, 5vw + 2rem, 8rem) 2rem;
 }
 
 .red-section {
@@ -38,8 +38,17 @@
 
 .hero-title {
     grid-area: title;
+
 }
 
 .hero-subtitle {
     grid-area: subtitle;
 }
+
+.hero-title, .hero-subtitle {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    text-align: center;
+}
+
+

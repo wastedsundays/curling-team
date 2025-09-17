@@ -44,12 +44,12 @@ const AboutPage = () => {
     return (
 
         <div>
-            <section>
-                <img src={team.image_url} alt={team.image_alt} />
-                <h1>Marpole Soul Men</h1>
-                <h2>Everybody Is A Star</h2>
+            <section className='hero-section'>
+                <img className='hero-image' src={team.image_url} alt={team.image_alt} />
+                <h1 className='hero-title'>Marpole Soul Men</h1>
+                <h2 className='hero-subtitle'>Everybody Is A Star</h2>
             </section>
-            <section>
+            <section className='section-spacing dark-bg-transparent'>
                 <div>
                     <div>
                         <p>Slide & the Family Stone is a mildly competitive men's curling team based in Vancouver at Marpole Curling Club. We pride ourselves on strategic play that sometimes pans out, team chemistry, and good sportsmanship both on and off the ice.</p>
@@ -66,7 +66,7 @@ const AboutPage = () => {
                     <b>From:</b>  {team.city}
                 </div>                
             </section>
-            <section>
+            <section className='section-spacing'>
                 <h2>Meet the Team</h2>
                 <div className='players-grid'>
                     {players.players.map((player) => (
@@ -82,7 +82,7 @@ const AboutPage = () => {
                     <PlayerModal player={selectedPlayer} onClose={() => setSelectedPlayer(null)} />
                 )}
             </section>
-            <section>
+            <section className='section-spacing dark-bg-transparent'>
                 <h2>Recent Achievements</h2>
                 <ul>
                     {team.achievements.map((achievement, index) => (
@@ -90,7 +90,7 @@ const AboutPage = () => {
                     ))}
                 </ul>
             </section>
-            <section>
+            <section className='section-spacing'>
                 <h2>Questions?</h2>
                 <ul>
                     {team.faq.map((item, index) => (
