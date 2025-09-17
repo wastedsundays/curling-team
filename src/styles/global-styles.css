@@ -8,7 +8,15 @@
             url('../fonts/flowers_sunday.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
+}
 
+@font-face {
+    font-family: 'Nunito';
+    src: url('../fonts/nunito-sans-v18-latin-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 
@@ -55,6 +63,8 @@ body {
 
     color: var(--grey-100);
 
+    font-family: 'Nunito', sans-serif;
+
 }
 
 img {
@@ -85,6 +95,6 @@ h4 {
     font-size: var(--step-2);
 }
 
-p, strong, li, b {
+p, strong, b {
     font-size: var(--step-0);
 }

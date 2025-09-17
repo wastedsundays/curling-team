@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Navigation from './Navigation';
 import Logo from '../../assets/slide-family-stone-logo.svg';
+import '../../styles/header-styles.css';
 
 
 const Header = () => {
