@@ -28,12 +28,12 @@ const PlayerModal = ({ player, onClose }) => {
                 <img src={largePhoto || '/placeholder-avatar.jpg'} alt={`${name}`} />
                 <h3>{name}</h3>
                 <p>{position}</p>
+                <b>Years Curled:</b> {yearsPlaying}<br/>
+                <b>From:</b> {hometown}<br/>
+                <b>Occupation:</b> {occupation}<br/>
+                <b>Favorite Shot:</b> {favoriteShot}<br/>
+                <b>Favorite Curler:</b> {favoriteCurler}<br/>
                 <p>{bio}</p>
-                <p>Years Curled: {yearsPlaying}</p>
-                <p>From: {hometown}</p>
-                <p>Occupation: {occupation}</p>
-                <p>Favorite Shot: {favoriteShot}</p>
-                <p>Favorite Curler: {favoriteCurler}</p>
             </motion.div>
         </div>
 
