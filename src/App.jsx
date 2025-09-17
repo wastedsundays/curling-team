@@ -6,6 +6,7 @@ import Header from './components/Header/Header'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ResultsPage from './pages/ResultsPage'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact" element={<h1>Contact Page</h1>} />
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   )
