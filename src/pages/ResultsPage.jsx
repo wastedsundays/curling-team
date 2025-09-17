@@ -1,10 +1,19 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ResultsPage = () => {
 
 const [results, setResults] = useState(null);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
+const [expandedRowIndex, setExpandedRowIndex] = useState(null);
+
+const toggleRow = (index) => {
+    if (expandedRowIndex === index) {
+        setExpandedRowIndex(null);
+    } else {
+        setExpandedRowIndex(index);
+    }
+}
 
 useEffect(() => {
     const fetchResultsData = async () => {
@@ -35,6 +44,7 @@ if (error) return <div>Error: {error.message}</div>;
             <section className='hero-section'>
                 <img className='hero-image' src='https://adamh.ca/slidefamilycurling/images/marpole_cc.webp' alt='A shot of Marpole Curling Club' />
                 <h1 className='hero-title'>Schedule & Results</h1>
+                <h2 className='hero-subtitle'>You Can Make It If You Slide</h2>
             </section>
             <section className='section-spacing dark-bg-transparent'>
             <div>
@@ -54,7 +64,8 @@ if (error) return <div>Error: {error.message}</div>;
                     </thead>
                     <tbody>
                         {results.games.map((game, index) => (
-                            <tr key={index}>
+                            <React.Fragment key={index}>
+                            <tr onClick={() => toggleRow(index)}>
                                 <td data-label='Date: '>{game.date === '' || game.date == null ? '--' : game.date}</td>
                                 <td data-label='Opponent: '>{game.opponent === '' || game.opponent == null ? '--' : game.opponent}</td>
                                 <td data-label='Sheet: '>{game.sheet === '' || game.sheet == null ? '--' : game.sheet}</td>
@@ -65,6 +76,36 @@ if (error) return <div>Error: {error.message}</div>;
                                 <td data-label='Result: '>{game.result === '' || game.result == null ? '--' : game.result}</td>
                                 <td data-label='Record: '>{game.record === '' || game.record == null ? '--' : game.record}</td>
                             </tr>
+                            {expandedRowIndex === index && (
+                            <tr className='expanded-boxscore'>
+                                <td colSpan="9">
+                                    <div>
+                                        {game.boxscore_red.length === 0 && game.boxscore_blue.length === 0 ? 'No Boxscore Available' : 'Boxscore:'}<br />
+                                        <div className='boxscores'>
+                                            {game.boxscore_red.map((end, endIndex) => (
+                                                <div key={endIndex}>
+                                                    {end === '' || end == null ? '--' : end}
+                                                </div>
+                                            ))}
+                                            <div className='boxscore-total'>{game.total_red}</div>
+                                        </div>
+                                        <div className='boxscores'>
+                                            {game.boxscore_blue.map((end, endIndex) => (
+                                                <div key={endIndex}>
+                                                    {end === '' || end == null ? '--' : end}
+                                                </div>
+                                            ))}
+                                            <div className='boxscore-total'>{game.total_blue}</div>
+                                        </div>
+
+
+
+                                    </div>
+                                </td>
+                            </tr>
+                            )}
+                            </React.Fragment>
+                            
                         ))}
                     </tbody>
                 </table>
