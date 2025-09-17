@@ -1,0 +1,45 @@
+/* section styles */
+
+.dark-bg-transparent {
+    background-color: var(--dark-bg-transparent);
+    backdrop-filter: blur(2px) grayscale(.5);
+}
+
+.section-spacing {
+    padding: clamp(5rem, 5vw + 2rem, 8rem) 0;
+}
+
+.red-section {
+    background-color: var(--red-primary);
+}
+
+.hero-section {
+    display: grid;
+    grid-template-areas: 'title'
+                         'subtitle'
+                         'image';
+}
+
+@media (min-width: 40rem) {
+    .hero-section {
+        grid-template-areas: 'image'
+                             'title'
+                             'subtitle';
+    }
+}
+
+
+.hero-image {
+    grid-area: image;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.hero-title {
+    grid-area: title;
+}
+
+.hero-subtitle {
+    grid-area: subtitle;
+}

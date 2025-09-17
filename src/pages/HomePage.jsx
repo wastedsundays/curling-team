@@ -3,19 +3,19 @@
 const HomePage = () => {
   return (
     <div>
-        <section>
-            <img src='https://adamh.ca/slidefamilycurling/images/ai_team_photo.webp' alt='Curling team photo with 4 men in matching uniforms.' />
-            <h1>Slide & The Family Stone</h1>
-            <h2 className='step-3'>Curling Funkdamentals</h2>
+        <section className='hero-section'>
+            <img className='hero-image' src='https://adamh.ca/slidefamilycurling/images/ai_team_photo.webp' alt='Curling team photo with 4 men in matching uniforms.' />
+            <h1 className='hero-title'>Slide & The Family Stone</h1>
+            <h2 className='hero-subtitle'>Curling Funkdamentals</h2>
             <div className='cta-button-group'>
                 <button>Challenge Us</button>
                 <button>Meet The Team</button>
             </div>
         </section>
-        <section>
+        <section className='section-spacing'>
 
         </section>
-        <section>
+        <section className='section-spacing dark-bg-transparent'>
             <h2>What We're All About</h2>
             <div>
                 <p>We're 4 guys who were all in the same Thursday league and thought it would be fun to take on the Monday Open League.</p>
@@ -25,7 +25,7 @@ const HomePage = () => {
             </div>
             <img src='https://picsum.photos/600' alt='placeholder image' />
         </section>
-        <section>
+        <section className='section-spacing'>
             <h2>Everything You Need to Know</h2>
             <div>
                 <article>
@@ -48,7 +48,7 @@ const HomePage = () => {
                 </article>
             </div>
         </section>
-        <section>
+        <section className='section-spacing'>
             <h2>What People Are Saying</h2>
             <div>
                 <blockquote>
@@ -61,7 +61,7 @@ const HomePage = () => {
                 </blockquote>
             </div>
         </section>
-        <section>
+        <section className='section-spacing red-section'>
             <h2>Ready to Take Us On?</h2>
             <p>We promise a good time, questionable curling, and you definitely buying drinks after.</p>
             <div className='cta-button-group'>
