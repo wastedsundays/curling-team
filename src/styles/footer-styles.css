@@ -1,0 +1,50 @@
+footer {
+    padding: 1rem 1.5rem 1.25rem;
+}
+
+footer p {
+    font-size: var(--step--2);
+}
+
+.footer-joke {
+    text-align: center;
+    color: var(--grey-300);
+}
+
+.footer-details {
+    text-align: center;
+
+}
+
+@media (min-width: 40rem) {
+    .footer-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+            'left right'
+            'center center';
+    }
+
+    .footer-copy {
+        grid-area: left;
+        text-align: left;
+    }
+
+    .footer-website {
+        grid-area: center;
+        text-align: center;
+    }
+
+    .footer-club {
+        grid-area: right;
+        text-align: right;
+    }
+}
+
+@media (min-width: 60rem) {
+    .footer-details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 'left center right';
+    }
+}

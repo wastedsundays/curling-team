@@ -42,7 +42,8 @@
     --grey-600: #495057; /* Borders/Dividers */
     --grey-700: #343a40; /*  */
     --grey-800: #212529; /*  */
-    --grey-900: #1a1a1a; /* Section Background */
+    --grey-900: #1a1a1a; /*  */
+    --dark-bg-transparent: rgba(26,26,26,.5); /* Section Background */
 }
 
 
@@ -97,4 +98,9 @@ h4 {
 
 p, strong, b {
     font-size: var(--step-0);
+}
+
+.dark-bg-transparent {
+    background-color: var(--dark-bg-transparent);
+    backdrop-filter: blur(2px);
 }
