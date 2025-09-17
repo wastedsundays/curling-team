@@ -25,15 +25,19 @@ const PlayerModal = ({ player, onClose }) => {
                 transition={{ duration: 0.3 }}
             >
                 <button className="modal-close" onClick={onClose}>✕</button>
-                <img src={largePhoto || '/placeholder-avatar.jpg'} alt={`${name}`} />
-                <h3>{name}</h3>
-                <p>{position}</p>
-                <b>Years Curled:</b> {yearsPlaying}<br/>
-                <b>From:</b> {hometown}<br/>
-                <b>Occupation:</b> {occupation}<br/>
-                <b>Favorite Shot:</b> {favoriteShot}<br/>
-                <b>Favorite Curler:</b> {favoriteCurler}<br/>
-                <p>{bio}</p>
+                <div className='player-modal-image'>
+                    <img src={largePhoto || '/placeholder-avatar.jpg'} alt={`${name}`} />
+                </div>
+                <div className='player-modal-info'>
+                    <h3>{name}</h3>
+                    <p>{position}</p>
+                    <b>Years Curled:</b> {yearsPlaying}<br/>
+                    <b>From:</b> {hometown}<br/>
+                    <b>Occupation:</b> {occupation}<br/>
+                    <b>Favorite Shot:</b> {favoriteShot}<br/>
+                    <b>Favorite Curler:</b> {favoriteCurler}<br/>
+                    <p>{bio}</p>
+                </div>
             </motion.div>
         </div>
 

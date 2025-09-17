@@ -1,4 +1,4 @@
-
+import '../../styles/player-card-styles.css';
 
 const PlayerCard = ({
     name,
