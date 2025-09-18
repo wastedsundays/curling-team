@@ -25,3 +25,52 @@
     font-family: 'flowers-sunday', cursive;
     line-height: 2;
 }
+
+.split-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.about-section h2 {
+    margin-bottom: 0rem;
+}
+
+.split-columns img {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.show-50rem {
+    display: none;
+}
+
+@media (min-width: 56rem) {
+    .split-columns {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 5rem;
+    }
+
+    .split-columns div {
+        width: 50%;
+    }
+    .split-columns img {
+        width: 50%;
+        max-width: none;
+    }
+
+    .hide-50rem {
+        display: none;
+    }
+
+    .show-50rem {
+        display: block;
+    }
+
+
+}
