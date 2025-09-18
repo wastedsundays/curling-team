@@ -1,0 +1,19 @@
+.fast-facts {
+    margin: 6rem auto 0;
+    padding: 3rem 1rem;
+    max-width: 600px;
+    background-color: var(--red-primary);
+
+    @media (min-width: 800px) {
+        padding: 4rem 4rem;
+    }
+}
+
+
+.recent-achievements {
+    max-width: 43.75rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+

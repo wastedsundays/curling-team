@@ -3,6 +3,8 @@ import PlayerCard from '../components/PlayerCard/PlayerCard';
 import PlayerModal from '../components/PlayerCard/PlayerModal';
 import FaqAccordion from '../components/FaqAccordion';
 
+import '../styles/about-styles.css';
+
 const AboutPage = () => {
 
     const [selectedPlayer, setSelectedPlayer] = useState(null);
@@ -57,9 +59,9 @@ const AboutPage = () => {
                         <p>The team was founded in 2023 as a mixed team, then known as The House Cleaners. In 2024, David joined us as a super-spare. With our lead Suzanne stepping back at the end of 2024, David joined us full-time (and that's how we became a men's team).</p>
                         <p>Our best work usually comes in the lounge after a game.</p>
                     </div>
-                    <img src='https://picsum.photos/450' alt='placeholder image' />
+                    <img src='https://adamh.ca/slidefamilycurling/images/about-us-photo.webp' alt='A closeup of a curling rock with a red handle' />
                 </div>
-                <div>
+                <div className='fast-facts'>
                     <h3>Fast Facts</h3>
                     <b>Founded:</b>  {team.foundedYear}<br/>
                     <b>Home Club:</b>  {team.homeClub}<br/>
@@ -68,7 +70,7 @@ const AboutPage = () => {
                 </div>                
             </section>
             <section className='section-spacing'>
-                <h2>Meet the Team</h2>
+                <h2 className='center-text'>Meet the Team</h2>
                 <div className='players-grid'>
                     {players.players.map((player) => (
                         <PlayerCard
@@ -84,12 +86,14 @@ const AboutPage = () => {
                 )}
             </section>
             <section className='section-spacing dark-bg-transparent'>
-                <h2>Recent Achievements</h2>
-                <ul>
-                    {team.achievements.map((achievement, index) => (
-                        <li key={index}>{achievement}</li>
-                    ))}
-                </ul>
+                <div className='recent-achievements'>
+                    <h2 className='center-text'>Recent Achievements</h2>
+                    <ul>
+                        {team.achievements.map((achievement, index) => (
+                            <li key={index}>{achievement}</li>
+                        ))}
+                    </ul>
+                </div>
             </section>
             <section className='section-spacing'>
                 <FaqAccordion data={team.faq} />
