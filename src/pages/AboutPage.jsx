@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PlayerCard from '../components/PlayerCard/PlayerCard';
 import PlayerModal from '../components/PlayerCard/PlayerModal';
+import FaqAccordion from '../components/FaqAccordion';
 
 const AboutPage = () => {
 
@@ -50,7 +51,7 @@ const AboutPage = () => {
                 <h2 className='hero-subtitle'>Everybody Is A Star</h2>
             </section>
             <section className='section-spacing dark-bg-transparent'>
-                <div>
+                <div className='split-columns'>
                     <div>
                         <p>Slide & the Family Stone is a mildly competitive men's curling team based in Vancouver at Marpole Curling Club. We pride ourselves on strategic play that sometimes pans out, team chemistry, and good sportsmanship both on and off the ice.</p>
                         <p>The team was founded in 2023 as a mixed team, then known as The House Cleaners. In 2024, David joined us as a super-spare. With our lead Suzanne stepping back at the end of 2024, David joined us full-time (and that's how we became a men's team).</p>
@@ -91,15 +92,7 @@ const AboutPage = () => {
                 </ul>
             </section>
             <section className='section-spacing'>
-                <h2>Questions?</h2>
-                <ul>
-                    {team.faq.map((item, index) => (
-                        <li key={index}>
-                            <strong>{item.question}</strong>
-                            <p>{item.answer}</p>
-                        </li>
-                    ))}
-                </ul>
+                <FaqAccordion data={team.faq} />
             </section>
 
         
