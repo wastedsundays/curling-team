@@ -27,7 +27,7 @@ const HomePage = () => {
                 <p>We curl for the love of the game, the friendship, and the inexplicable joy of yelling at a 44 pound slab of granite.</p>
 
             </div>
-            <img src='https://picsum.photos/600' alt='placeholder image' />
+            <img src='https://adamh.ca/slidefamilycurling/images/what-were-about.webp' alt='A curling team sweeps a rock while the skip shouts encouragement' />
         </div>
         </section>
         <section className='section-spacing'>
@@ -35,7 +35,7 @@ const HomePage = () => {
             <div className='need-to-know-grid'>
                 <Link to = '/about'>
                     <article className='need-to-know-article'>
-                        <img src='https://picsum.photos/300/150' alt='placeholder image' />
+                        <img src='https://adamh.ca/slidefamilycurling/images/meet-the-team-image.webp' alt='A comic book style illustration of the curling team in superhero uniforms' />
                         <h3>Meet the Team</h3>
                         <p>Get to know the people responsible for this beautiful disaster.</p>
                         <p className='red-text'>Learn About Us {'>'}</p>
@@ -43,7 +43,7 @@ const HomePage = () => {
                 </Link>
                 <Link to = '/results'>
                 <article className='need-to-know-article'>
-                    <img src='https://picsum.photos/300/150' alt='placeholder image' />
+                    <img src='https://adamh.ca/slidefamilycurling/images/results-link-image.webp' alt='An empty curling club with sheets and a scoreboard' />
                     <h3>Results</h3>
                     <p>Check out our schedule and see how we're doing this season.</p>
                     <p className='red-text'>See Our Results {'>'}</p>
@@ -51,9 +51,9 @@ const HomePage = () => {
                 </Link>
                 <Link to = '/contact'>
                     <article className='need-to-know-article'>
-                        <img src='https://picsum.photos/300/150' alt='placeholder image' />
+                        <img src='https://adamh.ca/slidefamilycurling/images/get-in-touch-image.webp' alt='A curler yelling at his sweepers' />
                         <h3>Get in Touch</h3>
-                        <p>Questions about our technique? Want to challenge us? We're surprisingly responsive</p>
+                        <p>Questions about our technique? Want to challenge us? Good communication is important in curling.</p>
                         <p className='red-text'>Contact Us {'>'}</p>
                     </article>
                 </Link>
