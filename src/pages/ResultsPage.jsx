@@ -83,7 +83,7 @@ if (error) return <div>Error: {error.message}</div>;
                                     <div className='boxscore-details'>
                                         {game.boxscore_red.length === 0 && game.boxscore_blue.length === 0 ? 'No Boxscore Available' : 'Boxscore:'}<br />
                                         <div className='boxscores'>
-                                            <div className='red-bg'></div>
+                                            <div className='red-bg'>{game.hammer === 'red' ? '🔨' : ''}</div>
                                             {game.boxscore_red.map((end, endIndex) => (
                                                 <div key={endIndex}>
                                                     {end === '' || end == null ? '--' : end}
@@ -92,7 +92,7 @@ if (error) return <div>Error: {error.message}</div>;
                                             <div className='boxscore-total'>{game.total_red}</div>
                                         </div>
                                         <div className='boxscores'>
-                                            <div className='blue-bg'></div>
+                                            <div className='blue-bg'>{game.hammer === 'blue' ? '🔨' : ''}</div>
                                             {game.boxscore_blue.map((end, endIndex) => (
                                                 <div key={endIndex}>
                                                     {end === '' || end == null ? '--' : end}
