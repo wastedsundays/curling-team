@@ -1,4 +1,6 @@
-
+import { Link } from 'react-router-dom';
+import StatGrid from '../components/StatGrid';
+import '../styles/home-styles.css';
 
 const HomePage = () => {
   return (
@@ -13,7 +15,7 @@ const HomePage = () => {
             </div>
         </section>
         <section className='section-spacing'>
-
+            <StatGrid />
         </section>
         <section className='section-spacing dark-bg-transparent'>
             <h2>What We're All About</h2>
@@ -28,24 +30,30 @@ const HomePage = () => {
         <section className='section-spacing'>
             <h2 className='center-text-700'>Everything You Need to Know</h2>
             <div className='need-to-know-grid'>
-                <article className='need-to-know-article'>
-                    <img src='https://picsum.photos/300/150' alt='placeholder image' />
-                    <h3>Meet the Team</h3>
-                    <p>Get to know the people responsible for this beautiful disaster.</p>
-                    <p>Learn About Us --</p>
-                </article>
+                <Link to = '/about'>
+                    <article className='need-to-know-article'>
+                        <img src='https://picsum.photos/300/150' alt='placeholder image' />
+                        <h3>Meet the Team</h3>
+                        <p>Get to know the people responsible for this beautiful disaster.</p>
+                        <p className='red-text'>Learn About Us {'>'}</p>
+                    </article>
+                </Link>
+                <Link to = '/results'>
                 <article className='need-to-know-article'>
                     <img src='https://picsum.photos/300/150' alt='placeholder image' />
                     <h3>Results</h3>
                     <p>Check out our schedule and see how we're doing this season.</p>
-                    <p>See Our Results --</p>
+                    <p className='red-text'>See Our Results {'>'}</p>
                 </article>
-                <article className='need-to-know-article'>
-                    <img src='https://picsum.photos/300/150' alt='placeholder image' />
-                    <h3>Get in Touch</h3>
-                    <p>Questions about our technique? Want to challenge us? We're surprisingly responsive</p>
-                    <p>Contact Us --</p>
-                </article>
+                </Link>
+                <Link to = '/contact'>
+                    <article className='need-to-know-article'>
+                        <img src='https://picsum.photos/300/150' alt='placeholder image' />
+                        <h3>Get in Touch</h3>
+                        <p>Questions about our technique? Want to challenge us? We're surprisingly responsive</p>
+                        <p className='red-text'>Contact Us {'>'}</p>
+                    </article>
+                </Link>
             </div>
         </section>
         <section className='section-spacing'>

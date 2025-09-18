@@ -60,15 +60,33 @@
     justify-content: center;
 }
 
+.need-to-know-grid a {
+    display: flex;
+
+}
+
 .need-to-know-article {
     width: 100%;
     max-width: 18.5rem;
     background-color: var(--grey-900);
     padding: 1rem;
+    /*  */
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease;
+}
+
+.need-to-know-article:hover {
+    background-color: var(--grey-800);
+    transition: background-color 0.3s ease;
 }
 
 .need-to-know-article h3 {
     text-align: center;
+}
+
+.need-to-know-article p:first-of-type {
+    flex-grow: 1;
 }
 
 

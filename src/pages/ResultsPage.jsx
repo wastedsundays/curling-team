@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/schedule-styles.css';
 
 const ResultsPage = () => {
 
@@ -79,9 +80,10 @@ if (error) return <div>Error: {error.message}</div>;
                             {expandedRowIndex === index && (
                             <tr className='expanded-boxscore'>
                                 <td colSpan="9">
-                                    <div>
+                                    <div className='boxscore-details'>
                                         {game.boxscore_red.length === 0 && game.boxscore_blue.length === 0 ? 'No Boxscore Available' : 'Boxscore:'}<br />
                                         <div className='boxscores'>
+                                            <div className='red-bg'></div>
                                             {game.boxscore_red.map((end, endIndex) => (
                                                 <div key={endIndex}>
                                                     {end === '' || end == null ? '--' : end}
@@ -90,6 +92,7 @@ if (error) return <div>Error: {error.message}</div>;
                                             <div className='boxscore-total'>{game.total_red}</div>
                                         </div>
                                         <div className='boxscores'>
+                                            <div className='blue-bg'></div>
                                             {game.boxscore_blue.map((end, endIndex) => (
                                                 <div key={endIndex}>
                                                     {end === '' || end == null ? '--' : end}
