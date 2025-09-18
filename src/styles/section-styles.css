@@ -47,9 +47,27 @@
 }
 
 .hero-title, .hero-subtitle {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+}
+
+.testimonial-block {
+    background-color: var(--dark-bg-transparent);
+    backdrop-filter: blur(2px) grayscale(.5);
+    max-width: 54rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+
+    @media (min-width: 35rem) {
+        padding: 4rem 4.5rem;
+    }
+}
+
+.testimonial-block blockquote {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 

@@ -8,8 +8,8 @@ const HomePage = () => {
             <h1 className='hero-title'>Slide & The Family Stone</h1>
             <h2 className='hero-subtitle'>Curling Funkdamentals</h2>
             <div className='cta-button-group'>
-                <button>Challenge Us</button>
-                <button>Meet The Team</button>
+                <button className='link-button red-button'>Challenge Us</button>
+                <button className='link-button black-button'>Meet The Team</button>
             </div>
         </section>
         <section className='section-spacing'>
@@ -26,7 +26,7 @@ const HomePage = () => {
             <img src='https://picsum.photos/600' alt='placeholder image' />
         </section>
         <section className='section-spacing'>
-            <h2>Everything You Need to Know</h2>
+            <h2 className='center-text-700'>Everything You Need to Know</h2>
             <div>
                 <article>
                     <img src='https://picsum.photos/300/150' alt='placeholder image' />
@@ -49,8 +49,8 @@ const HomePage = () => {
             </div>
         </section>
         <section className='section-spacing'>
-            <h2>What People Are Saying</h2>
-            <div>
+            <h2 className='center-text-700'>What People Are Saying</h2>
+            <div className='testimonial-block'>
                 <blockquote>
                     <p>"This team is amazing! They bring so much energy and fun to the ice. Watching them play is always a highlight of my week."</p>
                     <cite>- Jane Doe, Curling Enthusiast</cite>
@@ -61,12 +61,12 @@ const HomePage = () => {
                 </blockquote>
             </div>
         </section>
-        <section className='section-spacing red-section'>
+        <section className='section-spacing red-section center-text-700'>
             <h2>Ready to Take Us On?</h2>
             <p>We promise a good time, questionable curling, and you definitely buying drinks after.</p>
             <div className='cta-button-group'>
-                <button>Challenge Us</button>
-                <button>Just Say Hello</button>
+                <button className='link-button black-button'>Challenge Us</button>
+                <button className='link-button white-button'>Just Say Hello</button>
             </div>
         </section>
     </div>
