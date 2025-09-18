@@ -6,6 +6,24 @@
   "league": "Monday Open League",
   "image_url": "https://adamh.ca/slidefamilycurling/images/super_slide_family.webp",
   "image_alt": "An artistic rendering of the curling team as Super Heroes in red and blue suits.",
+  "stats": [
+    {
+      "label": "Win Rate",
+      "value": "100%"
+    },
+    {
+      "label": "Enthusiasm Level",
+      "value": "∞"
+    },
+    {
+      "label": "Post-Game Success Rate",
+      "value": "100%"
+    },
+    {
+      "label": "Incorrect Weight Calls",
+      "value": "2"
+    }
+  ],
   "achievements": [
     "Quarter Finalists, 2024 Club Championship",
     "Semi Finalists, 2025 Club Championship",
