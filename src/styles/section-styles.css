@@ -53,6 +53,26 @@
     text-align: center;
 }
 
+.need-to-know-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.need-to-know-article {
+    width: 100%;
+    max-width: 18.5rem;
+    background-color: var(--grey-900);
+    padding: 1rem;
+}
+
+.need-to-know-article h3 {
+    text-align: center;
+}
+
+
+
 .testimonial-block {
     background-color: var(--dark-bg-transparent);
     backdrop-filter: blur(2px) grayscale(.5);

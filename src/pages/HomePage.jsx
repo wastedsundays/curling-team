@@ -27,20 +27,20 @@ const HomePage = () => {
         </section>
         <section className='section-spacing'>
             <h2 className='center-text-700'>Everything You Need to Know</h2>
-            <div>
-                <article>
+            <div className='need-to-know-grid'>
+                <article className='need-to-know-article'>
                     <img src='https://picsum.photos/300/150' alt='placeholder image' />
                     <h3>Meet the Team</h3>
                     <p>Get to know the people responsible for this beautiful disaster.</p>
                     <p>Learn About Us --</p>
                 </article>
-                <article>
+                <article className='need-to-know-article'>
                     <img src='https://picsum.photos/300/150' alt='placeholder image' />
                     <h3>Results</h3>
                     <p>Check out our schedule and see how we're doing this season.</p>
                     <p>See Our Results --</p>
                 </article>
-                <article>
+                <article className='need-to-know-article'>
                     <img src='https://picsum.photos/300/150' alt='placeholder image' />
                     <h3>Get in Touch</h3>
                     <p>Questions about our technique? Want to challenge us? We're surprisingly responsive</p>

@@ -21,6 +21,9 @@
 
 
 :root {
+  box-sizing: border-box;
+
+  
     /* Fluid typography scale */
     --step--2: clamp(0.75rem, 0.7159rem + 0.1705vw, 0.8333rem);   /* 12px → 13.33px */
     --step--1: clamp(0.875rem, 0.8239rem + 0.2557vw, 1rem);       /* 14px → 16px */
