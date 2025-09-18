@@ -36,7 +36,7 @@ const PlayerModal = ({ player, onClose }) => {
                     <b>Occupation:</b> {occupation}<br/>
                     <b>Favorite Shot:</b> {favoriteShot}<br/>
                     <b>Favorite Curler:</b> {favoriteCurler}<br/>
-                    <p>{bio}</p>
+                    <div dangerouslySetInnerHTML={{ __html: bio }}></div>
                 </div>
             </motion.div>
         </div>

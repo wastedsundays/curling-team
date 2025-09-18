@@ -6,7 +6,7 @@ const StatGrid = () => {
     useEffect(() => {
         const fetchStatsData = async () => {
             try {
-                const response = await fetch('data/team-info.json');
+                const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/data/team-info.json`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch stats');
                 }

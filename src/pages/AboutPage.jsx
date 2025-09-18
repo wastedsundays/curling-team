@@ -18,8 +18,10 @@ const AboutPage = () => {
         const fetchData = async () => {
             try {
                 const [teamRes, playersRes] = await Promise.all([
-                    fetch('/data/team-info.json'),
-                    fetch('/data/team-players.json')
+                    // fetch('/data/team-info.json'),
+                    // fetch('/data/team-players.json')
+                    fetch(`${import.meta.env.VITE_API_BASE_URL}/data/team-info.json`),
+                    fetch(`${import.meta.env.VITE_API_BASE_URL}/data/team-players.json`)
                 ]);
 
                 if (!teamRes.ok || !playersRes.ok) {
