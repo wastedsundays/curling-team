@@ -19,7 +19,8 @@ const toggleRow = (index) => {
 useEffect(() => {
     const fetchResultsData = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/data/team-results.json`);
+            // const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/data/team-results.json`);
+            const response = await fetch(`${import.meta.env.BASE_URL}/data/team-results.json`);
             if (!response.ok) {
                 throw new Error('Failed to fetch results');
             }
