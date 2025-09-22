@@ -8,9 +8,10 @@
     border: 1px solid white;
     border-radius: 5px;
     margin-bottom: 1rem;
-    background-color: var(--grey-100);
+    background-color: var(--grey-300);
     color: var(--grey-900);
     font-family: 'Nunito', sans-serif;
+    transition: background-color 300ms ease;
 }
 
 .accordion-item h3 {
@@ -19,6 +20,10 @@
     margin-bottom: 0;
 }
 
+[data-state='open']  {
+    background-color: var(--grey-100);
+    transition: background-color 300ms ease;
+}
 .accordion-trigger {
     all: unset;
     font-weight: bold;
