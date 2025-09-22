@@ -96,10 +96,10 @@
     backdrop-filter: blur(2px) grayscale(.5);
     max-width: 54rem;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 5rem;
 
     @media (min-width: 35rem) {
-        padding: 4rem 4.5rem;
+        padding: 4rem 4.5rem 6rem;
     }
 }
 

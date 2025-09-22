@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import StatGrid from '../components/StatGrid';
+import Testimonials from '../components/Testimonials';
 import '../styles/home-styles.css';
 
 const HomePage = () => {
@@ -61,16 +62,7 @@ const HomePage = () => {
         </section>
         <section className='section-spacing'>
             <h2 className='center-text-700'>What People Are Saying</h2>
-            <div className='testimonial-block'>
-                <blockquote>
-                    <p>"This team is amazing! They bring so much energy and fun to the ice. Watching them play is always a highlight of my week."</p>
-                    <cite>- Jane Doe, Curling Enthusiast</cite>
-                </blockquote>
-                <blockquote>
-                    <p>"I had the pleasure of playing against this team, and let me tell you, they are a force to be reckoned with. Their teamwork and strategy are top-notch!"</p>
-                    <cite>- John Smith, Opposing Team Captain</cite>
-                </blockquote>
-            </div>
+            <Testimonials />
         </section>
         <section className='section-spacing red-section center-text-700'>
             <h2>Ready to Take Us On?</h2>

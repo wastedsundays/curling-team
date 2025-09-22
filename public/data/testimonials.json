@@ -1,0 +1,20 @@
+{
+    "testimonials": [
+        {
+        "quote": "This team is amazing! They bring so much energy and fun to the ice. Watching them play is always a highlight of my week.",
+        "author": "Jane Doe, Curling Enthusiast"
+        },
+        {
+        "quote": "I had the pleasure of playing against this team, and let me tell you, they are a force to be reckoned with. Their teamwork and strategy are top-notch!",
+        "author": "John Smith, Opposing Team Captain"
+        },
+        {
+        "quote": "As a long-time fan of curling, I can confidently say that this team is one of the best I've seen in years. Their dedication and skill are truly impressive.",
+        "author": "Emily Johnson, Sports Journalist"
+        },
+        {
+        "quote": "The camaraderie and spirit of this team are infectious. They not only play hard but also know how to have fun on and off the ice.",
+        "author": "Michael Brown, Curling Coach"
+        }
+    ]
+}

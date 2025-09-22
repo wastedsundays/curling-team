@@ -1,0 +1,23 @@
+/* Customize the active dot */
+.slick-dots li.slick-active button:before {
+  color: #ff5733; /* Change to your desired active dot color */
+}
+
+/* Customize the inactive dots */
+.slick-dots li button:before {
+  color: #999; /* Change to your desired inactive dot color */
+}
+
+/* Optional: Change the size of the dots */
+.slick-dots li button:before {
+  font-size: 14px; /* Adjust the size as needed */
+}
+
+.slick-slide cite {
+    text-align: center;
+    display: block;
+}
+
+.slick-track {
+    margin-bottom: 1rem;
+}
