@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import LinkButton from '../components/LinkButton';
 import StatGrid from '../components/StatGrid';
 import Testimonials from '../components/Testimonials';
 import '../styles/home-styles.css';
@@ -11,8 +12,8 @@ const HomePage = () => {
             <h1 className='hero-title'>Slide & The Family Stone</h1>
             <h2 className='hero-subtitle'>Curling Funkdamentals</h2>
             <div className='cta-button-group'>
-                <Link to='/contact' className='link-button red-button'>Challenge Us</Link>
-                <Link to='/about' className='link-button black-button'>Meet The Team</Link>
+                <LinkButton to='/contact' className='red-button'>Challenge Us</LinkButton>
+                <LinkButton to='/about' className='black-button'>Meet The Team</LinkButton>
             </div>
         </section>
         <section className='section-spacing'>
@@ -68,8 +69,8 @@ const HomePage = () => {
             <h2>Ready to Take Us On?</h2>
             <p>We promise a good time, questionable curling, and you definitely buying drinks after.</p>
             <div className='cta-button-group'>
-                <Link to='/contact' className='link-button black-button'>Challenge Us</Link>
-                <Link to='/contact' className='link-button white-button'>Just Say Hello</Link>
+                <LinkButton to='/contact' className='black-button'>Challenge Us</LinkButton>
+                <LinkButton to='/contact' className='white-button'>Just Say Hello</LinkButton>
             </div>
         </section>
     </div>
