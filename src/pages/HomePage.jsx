@@ -12,7 +12,7 @@ const HomePage = () => {
             <h1 className='hero-title'>Slide & The Family Stone</h1>
             <h2 className='hero-subtitle'>Curling Funkdamentals</h2>
             <div className='cta-button-group'>
-                <LinkButton to='/contact' className='red-button'>Challenge Us</LinkButton>
+                <LinkButton to='/contact?form=challenge' className='red-button'>Challenge Us</LinkButton>
                 <LinkButton to='/about' className='black-button'>Meet The Team</LinkButton>
             </div>
         </section>
@@ -69,8 +69,8 @@ const HomePage = () => {
             <h2>Ready to Take Us On?</h2>
             <p>We promise a good time, questionable curling, and you definitely buying drinks after.</p>
             <div className='cta-button-group'>
-                <LinkButton to='/contact' className='black-button'>Challenge Us</LinkButton>
-                <LinkButton to='/contact' className='white-button'>Just Say Hello</LinkButton>
+                <LinkButton to='/contact?form=challenge' className='black-button'>Challenge Us</LinkButton>
+                <LinkButton to='/contact?form=message' className='white-button'>Just Say Hello</LinkButton>
             </div>
         </section>
     </div>

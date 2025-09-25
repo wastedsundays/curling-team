@@ -8,6 +8,7 @@ import Header from './components/Header/Header'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ResultsPage from './pages/ResultsPage'
+import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer'
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/results" element={<ResultsPage />} />
-          <Route path="/contact" element={<h1>Contact Page</h1>} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
         <Footer />
