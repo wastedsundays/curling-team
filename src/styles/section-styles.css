@@ -35,6 +35,11 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+    min-height: 12.5rem;
+
+    @media (min-width: 40rem) {
+        min-height: 100vh;
+    }
 }
 
 .hero-title {
