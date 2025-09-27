@@ -1,4 +1,15 @@
 import { useEffect, useState } from 'react';
+//eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
+import {
+    fadeInLeft,
+    fadeInRight,
+    transitions,
+    viewportSettings,
+    mobileOnly,
+    conditionalAnimation
+} from '../utilities/animationVariants';
+
 
 const StatGrid = () => {
     const [stats, setStats] = useState(null);
@@ -21,17 +32,42 @@ const StatGrid = () => {
         fetchStatsData();
     }, []);
 
+    // Function to get animation variant based on index
+    const getVariantByIndex = (index) => {
+        const isLeft = index % 2 === 0; // Even indices (0, 2) go left, odd indices (1, 3) go right
+        const desktopVariant = isLeft ? fadeInLeft : fadeInRight;
+        const mobileVariant = mobileOnly.slideUpMinimal; // Same animation for all on mobile
+        
+        return conditionalAnimation(mobileVariant, desktopVariant);
+    };
+
+    const getStaggerDelay = (index) => {
+        const row = Math.floor(index / 2);
+        return row * 0.1;
+    };
+
+
     if (!stats) {
         return <div>Loading...</div>;
     }
 
     return (
         <div className="stat-grid">
-            {stats.map((stat) => (
-                <div className="stat-item" key={stat.label}>
+            {stats.map((stat, index) => (
+                <motion.div 
+                    className="stat-item" 
+                    key={stat.label}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportSettings}
+                    variants={getVariantByIndex(index)}
+                    transition={{...transitions.smooth,
+                        delay: getStaggerDelay(index)
+                    }}
+                >
                     <span className="stat-value">{stat.value}</span>
                     <span className="stat-label">{stat.label}</span>
-                </div>
+                </motion.div>
             ))}
         </div>
     );
