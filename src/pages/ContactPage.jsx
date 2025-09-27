@@ -13,13 +13,7 @@ const ContactPage = () => {
     return (
         <div>
             {formType === 'challenge' && <ChallengeForm />}
-            {/* {formType === 'message' && <MessageForm />}
-            {!formType && (
-                <div>
-                    <p>Please select a form to fill out:</p>
-                </div>
-            ) */}
-            {formType !=='challenge' && <MessageForm />}
+            {formType !== 'challenge' && <MessageForm />}
         </div>
     );
 }
