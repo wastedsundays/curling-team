@@ -29,13 +29,21 @@ const PlayerModal = ({ player, onClose }) => {
                     <img src={largePhoto || '/placeholder-avatar.jpg'} alt={`${name}`} />
                 </div>
                 <div className='player-modal-info'>
-                    <h3>{name}</h3>
-                    <p>{position}</p>
-                    <b>Years Curled:</b> {yearsPlaying}<br/>
-                    <b>From:</b> {hometown}<br/>
-                    <b>Occupation:</b> {occupation}<br/>
-                    <b>Favorite Shot:</b> {favoriteShot}<br/>
-                    <b>Favorite Curler:</b> {favoriteCurler}<br/>
+                    <h3 className='margin-bottom-0'>{name}</h3>
+                    <h4 className='margin-top-0'>{position}</h4>
+                    <dl className='player-modal-details'>
+                        <dt><b>Years Curled:</b></dt>
+                        <dd>{yearsPlaying}</dd>
+                        <dt><b>From:</b></dt>
+                        <dd>{hometown}</dd>
+                        <dt><b>Occupation:</b></dt>
+                        <dd>{occupation}</dd>
+                        <dt><b>Favorite Shot:</b></dt>
+                        <dd>{favoriteShot}</dd>
+                        <dt><b>Favorite Curler:</b></dt>
+                        <dd>{favoriteCurler}</dd>
+                    </dl>
+
                     <div dangerouslySetInnerHTML={{ __html: bio }}></div>
                 </div>
             </motion.div>
