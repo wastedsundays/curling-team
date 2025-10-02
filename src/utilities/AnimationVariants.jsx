@@ -100,15 +100,15 @@ export const conditionalAnimation = (mobileVariant, desktopVariant) => {
 // Common viewport settings
 export const viewportSettings = {
   once: true,
-  amount: getResponsiveValue(0.1, 0.2)
+  amount: getResponsiveValue(0.8, 0.7)
 };
 
 export const viewportSettingsHalf = {
   once: true,
-  amount: getResponsiveValue(0.3, 0.5)
+  amount: getResponsiveValue(0.6, 0.5)
 };
 
 export const viewportSettingsThird = {
   once: true,
-  amount: getResponsiveValue(0.2, 0.3)
+  amount: getResponsiveValue(0.3, 0.2)
 };
