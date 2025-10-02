@@ -8,7 +8,7 @@ import {
     viewportSettings,
     mobileOnly,
     conditionalAnimation
-} from '../utilities/animationVariants';
+} from '../utilities/AnimationVariants';
 
 
 const StatGrid = () => {
