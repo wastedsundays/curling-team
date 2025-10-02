@@ -23,7 +23,7 @@ nav {
     top: 0;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(.25rem);
-    transition: transform 1000ms cubic-bezier(0.345, 0.655, 0.770, 0.935);
+    transition: transform 500ms cubic-bezier(0.345, 0.655, 0.770, 0.935);
     transform: translateY(-100%);
     z-index: 9998;
 }
