@@ -96,6 +96,11 @@ export const conditionalAnimation = (mobileVariant, desktopVariant) => {
   return window.innerWidth < 768 ? mobileVariant : desktopVariant;
 };
 
+export const noAnimation = {
+  hidden: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 0 }
+};
+
 
 // Common viewport settings
 export const viewportSettings = {

@@ -1,4 +1,13 @@
 import { Link } from 'react-router-dom';
+//eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
+import { fadeInUp, 
+         viewportSettings,
+         viewportSettingsHalf,
+         conditionalAnimation,
+        //  noAnimation,
+         mobileOnly, 
+        } from '../utilities/AnimationVariants';
 import LinkButton from '../components/LinkButton';
 import StatGrid from '../components/StatGrid';
 import Testimonials from '../components/Testimonials';
@@ -9,7 +18,15 @@ const HomePage = () => {
     <div>
         <section className='hero-section'>
             <img className='hero-image' src='https://adamh.ca/slidefamilycurling/images/ai_team_photo.webp' alt='Curling team photo with 4 men in matching uniforms.' />
-            <h1 className='hero-title'>Slide & The Family Stone</h1>
+            <motion.h1 
+                className='hero-title'
+                variants={conditionalAnimation(mobileOnly.fadeIn, fadeInUp)}
+                initial='hidden'
+                whileInView='visible'
+                viewport={viewportSettings}
+                transition='transitions.slow'>
+                    <h1>Slide & The Family Stone</h1>
+            </motion.h1>
             <h2 className='hero-subtitle'>Curling Funkdamentals</h2>
             <div className='cta-button-group'>
                 <LinkButton to='/contact?form=challenge' className='red-button'>Challenge Us</LinkButton>
@@ -33,7 +50,16 @@ const HomePage = () => {
         </div>
         </section>
         <section className='section-spacing'>
-            <h2 className='center-text-700'>Everything You Need to Know</h2>
+            <motion.h2 
+                className='center-text-700'
+                variants={fadeInUp}
+                initial='hidden'
+                whileInView='visible'
+                viewport={viewportSettingsHalf}
+                transition='transitions.smooth'
+                >
+                    Everything You Need to Know
+            </motion.h2>
             <div className='need-to-know-grid'>
                 <Link to = '/about'>
                     <article className='need-to-know-article'>
@@ -62,11 +88,28 @@ const HomePage = () => {
             </div>
         </section>
         <section className='section-spacing'>
-            <h2 className='center-text-700'>What People Are Saying</h2>
+            <motion.h2 
+                className='center-text-700'
+                variants={fadeInUp}
+                initial='hidden'
+                whileInView='visible'
+                viewport={viewportSettingsHalf}
+                transition='transitions.smooth'
+                >
+                    What People Are Saying
+            </motion.h2>
             <Testimonials />
         </section>
         <section className='section-spacing red-section center-text-700'>
-            <h2>Ready to Take Us On?</h2>
+            <motion.h2
+                variants={fadeInUp}
+                initial='hidden'
+                whileInView='visible'
+                viewport={viewportSettingsHalf}
+                transition='transitions.smooth'
+            >
+                Ready to Take Us On?
+            </motion.h2>
             <p>We promise a good time, questionable curling, and you definitely buying drinks after.</p>
             <div className='cta-button-group'>
                 <LinkButton to='/contact?form=challenge' className='black-button'>Challenge Us</LinkButton>
