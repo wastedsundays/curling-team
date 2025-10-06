@@ -38,7 +38,9 @@
     min-height: 12.5rem;
 
     @media (min-width: 40rem) {
-        min-height: 100vh;
+        /* min-height: 100vh; */
+        max-height: 70vh;
+        object-position: top;
     }
 }
 
