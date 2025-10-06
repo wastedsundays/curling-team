@@ -10,6 +10,7 @@ import { fadeInUp,
         } from '../utilities/AnimationVariants';
 import LinkButton from '../components/LinkButton';
 import StatGrid from '../components/StatGrid';
+import NeedToKnowSection from '../components/NeedToKnowSection';
 import Testimonials from '../components/Testimonials';
 import '../styles/home-styles.css';
 
@@ -24,8 +25,9 @@ const HomePage = () => {
                 initial='hidden'
                 whileInView='visible'
                 viewport={viewportSettings}
-                transition='transitions.slow'>
-                    <h1>Slide & The Family Stone</h1>
+                transition='transitions.slow'
+                >
+                    Slide & The Family Stone
             </motion.h1>
             <h2 className='hero-subtitle'>Curling Funkdamentals</h2>
             <div className='cta-button-group'>
@@ -49,44 +51,9 @@ const HomePage = () => {
             <img src='https://adamh.ca/slidefamilycurling/images/what-were-about.webp' alt='A curling team sweeps a rock while the skip shouts encouragement' />
         </div>
         </section>
-        <section className='section-spacing'>
-            <motion.h2 
-                className='center-text-700'
-                variants={fadeInUp}
-                initial='hidden'
-                whileInView='visible'
-                viewport={viewportSettingsHalf}
-                transition='transitions.smooth'
-                >
-                    Everything You Need to Know
-            </motion.h2>
-            <div className='need-to-know-grid'>
-                <Link to = '/about'>
-                    <article className='need-to-know-article'>
-                        <img src='https://adamh.ca/slidefamilycurling/images/meet-the-team-image.webp' alt='A comic book style illustration of the curling team in superhero uniforms' />
-                        <h3>Meet the Team</h3>
-                        <p>Get to know the people responsible for this beautiful disaster.</p>
-                        <p className='red-text'>Learn About Us {'>'}</p>
-                    </article>
-                </Link>
-                <Link to = '/results'>
-                <article className='need-to-know-article'>
-                    <img src='https://adamh.ca/slidefamilycurling/images/results-link-image.webp' alt='An empty curling club with sheets and a scoreboard' />
-                    <h3>Results</h3>
-                    <p>Check out our schedule and see how we're doing this season.</p>
-                    <p className='red-text'>See Our Results {'>'}</p>
-                </article>
-                </Link>
-                <Link to = '/contact'>
-                    <article className='need-to-know-article'>
-                        <img src='https://adamh.ca/slidefamilycurling/images/get-in-touch-image.webp' alt='A curler yelling at his sweepers' />
-                        <h3>Get in Touch</h3>
-                        <p>Questions about our technique? Want to challenge us? Good communication is important in curling.</p>
-                        <p className='red-text'>Contact Us {'>'}</p>
-                    </article>
-                </Link>
-            </div>
-        </section>
+
+        <NeedToKnowSection />
+
         <section className='section-spacing'>
             <motion.h2 
                 className='center-text-700'
