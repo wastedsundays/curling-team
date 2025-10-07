@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import '../styles/schedule-styles.css';
+
 
 const ResultsPage = () => {
 
@@ -7,6 +9,7 @@ const [results, setResults] = useState(null);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 const [expandedRowIndex, setExpandedRowIndex] = useState(null);
+const location = useLocation();
 
 const toggleRow = (index) => {
     if (expandedRowIndex === index) {
@@ -19,7 +22,6 @@ const toggleRow = (index) => {
 useEffect(() => {
     const fetchResultsData = async () => {
         try {
-            // const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/data/team-results.json`);
             const response = await fetch(`${import.meta.env.BASE_URL}/data/team-results.json`);
             if (!response.ok) {
                 throw new Error('Failed to fetch results');
@@ -36,7 +38,17 @@ useEffect(() => {
     fetchResultsData();
 }, []);
 
+useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const gameId = params.get('game');
 
+    if (gameId && results) {
+        const gameIndex = results.games.findIndex((game) => game.id === gameId);
+        if (gameIndex !== -1) {
+            setExpandedRowIndex(gameIndex);
+        }
+    }
+}, [location.search, results]);
 
 if (loading) return <div>Loading...</div>;
 if (error) return <div>Error: {error.message}</div>;
@@ -101,6 +113,11 @@ if (error) return <div>Error: {error.message}</div>;
                                             ))}
                                             <div className='boxscore-total'>{game.total_blue}</div>
                                         </div>
+                                        {!game.coin_toss || game.coin_toss === '' ? null :
+                                        <div className='coin-toss-info'>
+                                            {game.coin_toss === 'win' ? 'We won the coin toss.' : 'We lost the coin toss.'}
+                                        </div>
+                                        }
 
 
 
