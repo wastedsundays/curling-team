@@ -39,7 +39,7 @@
 
     @media (min-width: 40rem) {
         /* min-height: 100vh; */
-        max-height: 70vh;
+        height: 70vh;
         object-position: top;
     }
 }

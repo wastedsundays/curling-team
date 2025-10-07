@@ -1,4 +1,16 @@
 import { useEffect, useState } from 'react';
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
+import { fadeInLeft,
+            fadeInRight,
+            fadeInUp,
+            // viewportSettingsHalf,
+            transitions,
+            viewportSettingsThird,
+            mobileOnly,
+            conditionalAnimation
+         } from '../utilities/AnimationVariants';
+
 import PlayerCard from '../components/PlayerCard/PlayerCard';
 import PlayerModal from '../components/PlayerCard/PlayerModal';
 import FaqAccordion from '../components/FaqAccordion';
@@ -6,6 +18,9 @@ import FaqAccordion from '../components/FaqAccordion';
 import '../styles/about-styles.css';
 
 const AboutPage = () => {
+
+    const textVariant = conditionalAnimation(mobileOnly.slideUpMinimal, fadeInLeft);
+    const imageVariant = conditionalAnimation(mobileOnly.slideUpMinimal, fadeInRight);
 
     const [selectedPlayer, setSelectedPlayer] = useState(null);
 
@@ -18,9 +33,6 @@ const AboutPage = () => {
         const fetchData = async () => {
             try {
                 const [teamRes, playersRes] = await Promise.all([
-
-                    // fetch(`${import.meta.env.VITE_API_BASE_URL}/data/team-info.json`),
-                    // fetch(`${import.meta.env.VITE_API_BASE_URL}/data/team-players.json`)
                     fetch(`${import.meta.env.BASE_URL}/data/team-info.json`),
                     fetch(`${import.meta.env.BASE_URL}/data/team-players.json`)
                 ]);
@@ -56,20 +68,38 @@ const AboutPage = () => {
             </section>
             <section className='section-spacing dark-bg-transparent'>
                 <div className='split-columns'>
-                    <div>
+                    <motion.div
+                        initial='hidden'
+                        whileInView='visible'
+                        viewport={viewportSettingsThird}
+                        variants={textVariant}
+                        transition={transitions.smooth}>
                         <p>Slide & the Family Stone is a mildly competitive men's curling team based in Vancouver at Marpole Curling Club. We pride ourselves on strategic play that sometimes pans out, team chemistry, and good sportsmanship both on and off the ice.</p>
                         <p>The team was founded in 2023 as a mixed team, then known as The House Cleaners. In 2024, David joined us as a super-spare. With our lead Suzanne stepping back at the end of 2024, David joined us full-time (and that's how we became a men's team).</p>
                         <p>Our best work usually comes in the lounge after a game.</p>
-                    </div>
-                    <img src='https://adamh.ca/slidefamilycurling/images/about-us-photo.webp' alt='A closeup of a curling rock with a red handle' />
+                    </motion.div>
+                    <motion.img
+                        initial='hidden'
+                        whileInView='visible'
+                        viewport={viewportSettingsThird}
+                        variants={imageVariant}
+                        transition={transitions.smooth} 
+                    
+                    src='https://adamh.ca/slidefamilycurling/images/about-us-photo.webp' alt='A closeup of a curling rock with a red handle' />
                 </div>
-                <div className='fast-facts'>
+                <motion.div 
+                className='fast-facts'
+                initial='hidden'
+                whileInView='visible'
+                viewport={viewportSettingsThird}
+                variants={fadeInUp}
+                transition={transitions.smooth}>
                     <h3>Fast Facts</h3>
                     <b>Founded:</b>  {team.foundedYear}<br/>
                     <b>Home Club:</b>  {team.homeClub}<br/>
                     <b>League:</b>  {team.league}<br/>
                     <b>From:</b>  {team.city}
-                </div>                
+                </motion.div>                
             </section>
             <section className='section-spacing'>
                 <h2 className='center-text'>Meet the Team</h2>
