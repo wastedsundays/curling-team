@@ -127,3 +127,10 @@
 .schedule-table tr:has(+ tr.expanded-boxscore) td {
     border-bottom: none;
 }
+
+.boxscore-details {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    align-items: center;
+}
