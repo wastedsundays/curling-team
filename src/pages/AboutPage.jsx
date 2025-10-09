@@ -11,6 +11,7 @@ import { fadeInLeft,
             conditionalAnimation
          } from '../utilities/AnimationVariants';
 
+import HeroImage from '../components/HeroImage';
 import PlayerCard from '../components/PlayerCard/PlayerCard';
 import PlayerModal from '../components/PlayerCard/PlayerModal';
 import FaqAccordion from '../components/FaqAccordion';
@@ -62,7 +63,11 @@ const AboutPage = () => {
 
         <div>
             <section className='hero-section'>
-                <img className='hero-image' src={team.image_url} alt={team.image_alt} />
+                <HeroImage
+                    className='hero-image'
+                    src={team.image_url}
+                    alt={team.image_alt}
+                />
                 <h1 className='hero-title'>Marpole Soul Men</h1>
                 <h2 className='hero-subtitle'>Everybody Is A Star</h2>
             </section>

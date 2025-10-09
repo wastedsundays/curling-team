@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import HeroImage from '../components/HeroImage';
 import '../styles/schedule-styles.css';
 
 
@@ -56,7 +57,11 @@ if (error) return <div>Error: {error.message}</div>;
     return (
         <div>
             <section className='hero-section'>
-                <img className='hero-image' src='https://adamh.ca/slidefamilycurling/images/marpole_cc.webp' alt='A shot of Marpole Curling Club' />
+                <HeroImage
+                    className='hero-image'
+                    src='https://adamh.ca/slidefamilycurling/images/marpole_cc.webp'
+                    alt='A shot of Marpole Curling Club'
+                />
                 <h1 className='hero-title'>Schedule & Results</h1>
                 <h2 className='hero-subtitle'>You Can Make It If You Slide</h2>
             </section>
