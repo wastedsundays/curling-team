@@ -8,6 +8,7 @@ import { fadeInUp,
         //  noAnimation,
          mobileOnly, 
         } from '../utilities/AnimationVariants';
+import HeroImage from '../components/HeroImage';
 import LinkButton from '../components/LinkButton';
 import StatGrid from '../components/StatGrid';
 import HomeAboutSection from '../components/HomeAboutSection';
@@ -19,7 +20,11 @@ const HomePage = () => {
   return (
     <div>
         <section className='hero-section'>
-            <img className='hero-image' src='https://adamh.ca/slidefamilycurling/images/ai_team_photo.webp' alt='Curling team photo with 4 men in matching uniforms.' />
+            <HeroImage
+                className='hero-image'
+                src='https://adamh.ca/slidefamilycurling/images/ai_team_photo.webp'
+                alt='Curling team photo with 4 men in matching uniforms.'
+            />
             <motion.h1 
                 className='hero-title'
                 variants={conditionalAnimation(mobileOnly.fadeIn, fadeInUp)}
