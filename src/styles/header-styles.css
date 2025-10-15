@@ -16,7 +16,7 @@
     }
 }
 
-nav {
+header nav {
     height: 100vh;
     width: 100vw;
     position: fixed;
@@ -45,7 +45,7 @@ nav.open {
     font-family: 'flowers-sunday', cursive;
 }
 
-.nav-links li a {
+ .nav-links li a {
     text-decoration: none;
     color: var(--grey-100);
     font-size: var(--step-3);
@@ -55,4 +55,8 @@ nav.open {
 
 .nav-links li a:hover {
     color: var(--red-primary);
+}
+
+.active-header-link a {
+    color: var(--red-secondary);
 }
