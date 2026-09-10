@@ -57,6 +57,6 @@ nav.open {
     color: var(--red-primary);
 }
 
-.active-header-link a {
+.nav-links .active-header-link a {
     color: var(--red-secondary);
 }

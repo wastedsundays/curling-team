@@ -18,7 +18,7 @@
 }
 
 .stat-value {
-    font-size: var(--step-5);
+    font-size: var(--step-4);
     font-weight: bold;
     color: var(--red-secondary);
     /* margin-bottom: 0.5rem; */

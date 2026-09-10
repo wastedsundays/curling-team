@@ -134,3 +134,25 @@
     padding: 1rem 0;
     align-items: center;
 }
+
+.season-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.season-tab {
+    padding: 0.4rem 1rem;
+    border: 1px solid currentColor;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.6;
+    max-width: 18rem;
+}
+
+.season-tab.active {
+    opacity: 1;
+    font-weight: bold;
+    background: var(--red-primary);
+}

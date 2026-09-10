@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 //eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { fadeInUp, 
-         viewportSettings,
+        //  viewportSettings,
          viewportSettingsHalf,
-         conditionalAnimation,
+        //  conditionalAnimation,
         //  noAnimation,
-         mobileOnly, 
+        //  mobileOnly, 
         } from '../utilities/AnimationVariants';
 import HeroImage from '../components/HeroImage';
 import LinkButton from '../components/LinkButton';
@@ -22,19 +22,11 @@ const HomePage = () => {
         <section className='hero-section'>
             <HeroImage
                 className='hero-image'
-                src='https://adamh.ca/slidefamilycurling/images/ai_team_photo.webp'
-                alt='Curling team photo with 4 men in matching uniforms.'
+                src='https://adamh.ca/slidefamilycurling/images/slide-family-photo.webp'
+                alt='Curling team photo with 4 men standing in the rings holding brooms.'
             />
-            <motion.h1 
-                className='hero-title'
-                variants={conditionalAnimation(mobileOnly.fadeIn, fadeInUp)}
-                initial='hidden'
-                whileInView='visible'
-                viewport={viewportSettings}
-                transition='transitions.slow'
-                >
-                    Slide & The Family Stone
-            </motion.h1>
+
+            <h1 className='hero-title'>Slide & The Family Stone</h1>
             <h2 className='hero-subtitle'>Curling Funkdamentals</h2>
             <div className='cta-button-group'>
                 <LinkButton to='/contact?form=challenge' className='red-button'>Challenge Us</LinkButton>
