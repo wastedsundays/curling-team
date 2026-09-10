@@ -10,6 +10,7 @@ const [results, setResults] = useState(null);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 const [expandedRowIndex, setExpandedRowIndex] = useState(null);
+const [selectedSeasonId, setSelectedSeasonId] = useState(null);
 const location = useLocation();
 
 const toggleRow = (index) => {
@@ -29,6 +30,11 @@ useEffect(() => {
             }
             const resultsData = await response.json();
             setResults(resultsData);
+
+            const lastActiveSeason = [...resultsData.seasons].reverse().find(season => season.games && season.games.length > 0);
+            if (lastActiveSeason) {
+                setSelectedSeasonId(lastActiveSeason.id);
+            }
         } catch (error) {
             setError(error);
         } finally {
@@ -43,16 +49,22 @@ useEffect(() => {
     const params = new URLSearchParams(location.search);
     const gameId = params.get('game');
 
-    if (gameId && results) {
-        const gameIndex = results.games.findIndex((game) => game.id === gameId);
-        if (gameIndex !== -1) {
-            setExpandedRowIndex(gameIndex);
+    if (gameId && results && selectedSeasonId) {
+        const currentSeason = results.seasons.find(s => s.id === selectedSeasonId);
+        if (currentSeason) {
+            const gameIndex = currentSeason.games.findIndex((game) => game.id === gameId);
+            if (gameIndex !== -1) {
+                setExpandedRowIndex(gameIndex);
+            }
         }
     }
-}, [location.search, results]);
+}, [location.search, results, selectedSeasonId]);
 
 if (loading) return <div>Loading...</div>;
 if (error) return <div>Error: {error.message}</div>;
+
+const currentSeason = results.seasons.find(s => s.id === selectedSeasonId);
+const games = currentSeason?.games ?? [];
 
     return (
         <div>
@@ -66,6 +78,23 @@ if (error) return <div>Error: {error.message}</div>;
                 <h2 className='hero-subtitle'>You Can Make It If You Slide</h2>
             </section>
             <section className='section-spacing dark-bg-transparent'>
+
+            {/* Season Selector */}
+                <div className='season-selector'>
+                    {results.seasons.filter(season => season.games && season.games.length > 0).map(season => (
+                        <button
+                            key={season.id}
+                            className={`season-tab ${season.id === selectedSeasonId ? 'active' : ''}`}
+                            onClick={() => {
+                                setSelectedSeasonId(season.id);
+                                setExpandedRowIndex(null);
+                            }}
+                        >
+                            {season.label}
+                        </button>
+                    ))}
+                </div>  
+
             <div>
                 <table className='schedule-table'>
                     <thead>
@@ -82,7 +111,7 @@ if (error) return <div>Error: {error.message}</div>;
                         </tr>
                     </thead>
                     <tbody>
-                        {results.games.map((game, index) => (
+                        {games.map((game, index) => (
                             <React.Fragment key={index}>
                             <tr onClick={() => toggleRow(index)}>
                                 <td data-label='Date: '>{game.date === '' || game.date == null ? '--' : game.date}</td>

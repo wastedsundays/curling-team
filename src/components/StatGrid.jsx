@@ -13,6 +13,7 @@ import {
 
 const StatGrid = () => {
     const [stats, setStats] = useState(null);
+    const [selectedSeasonId, setSelectedSeasonId] = useState(null);
 
     useEffect(() => {
         const fetchStatsData = async () => {
@@ -23,7 +24,12 @@ const StatGrid = () => {
                     throw new Error('Failed to fetch stats');
                 }
                 const data = await response.json();
-                setStats(data.stats);
+                setStats(data.seasons);
+                
+                const lastActiveSeason = [...data.seasons].reverse().find(season => season.stats && season.stats.length > 0);
+                if (lastActiveSeason) {
+                    setSelectedSeasonId(lastActiveSeason.id);
+                }
             } catch (error) {
                 console.error(error);
             }
@@ -51,25 +57,46 @@ const StatGrid = () => {
         return <div>Loading...</div>;
     }
 
+    const currentSeason = stats.find(s => s.id === selectedSeasonId);
+    const games = currentSeason?.stats ?? [];
+
+// const games = currentSeason?.games ?? [];
     return (
-        <div className="stat-grid">
-            {stats.map((stat, index) => (
-                <motion.div 
-                    className="stat-item" 
-                    key={stat.label}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportSettings}
-                    variants={getVariantByIndex(index)}
-                    transition={{...transitions.smooth,
-                        delay: getStaggerDelay(index)
-                    }}
-                >
-                    <span className="stat-value">{stat.value}</span>
-                    <span className="stat-label">{stat.label}</span>
-                </motion.div>
-            ))}
-        </div>
+        <>
+        {/* Season Selector */}
+            <div className='season-selector'>
+                {stats.filter(season => season.stats && season.stats.length > 0).map(season => (
+                    <button
+                        key={season.id}
+                        className={`season-tab ${season.id === selectedSeasonId ? 'active' : ''}`}
+                        onClick={() => {
+                            setSelectedSeasonId(season.id);
+                            console.log(`Selected season: ${season.id}`);
+                        }}
+                    >
+                        {season.label}
+                    </button>
+                ))}
+            </div>  
+            <div className="stat-grid">
+                {games.map((stat, index) => (
+                    <motion.div 
+                        className="stat-item" 
+                        key={stat.label}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportSettings}
+                        variants={getVariantByIndex(index)}
+                        transition={{...transitions.smooth,
+                            delay: getStaggerDelay(index)
+                        }}
+                    >
+                        <span className="stat-value">{stat.value}</span>
+                        <span className="stat-label">{stat.label}</span>
+                    </motion.div>
+                ))}
+            </div>
+        </>
     );
 };
 
