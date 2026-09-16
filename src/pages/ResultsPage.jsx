@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import HeroImage from '../components/HeroImage';
 import '../styles/schedule-styles.css';
+import { calculateRunningRecords, getGameTotals, isGamePlayed, getGameResult } from '../utilities/Seasonstats';
 
 
 const ResultsPage = () => {
@@ -66,6 +67,26 @@ if (error) return <div>Error: {error.message}</div>;
 const currentSeason = results.seasons.find(s => s.id === selectedSeasonId);
 const games = currentSeason?.games ?? [];
 
+const runningRecords = calculateRunningRecords(games);
+
+const formatScore = (game) => {
+    if (!isGamePlayed(game)) return '--';
+    const { redTotal, blueTotal } = getGameTotals(game);
+    const usTotal = game.team_color === "red" ? redTotal : blueTotal;
+    const themTotal = game.team_color === "red" ? blueTotal : redTotal;
+    return `${usTotal}-${themTotal}`;
+};
+
+const determineGameResult = (game) => {
+    if (!isGamePlayed(game)) return '--';
+    return getGameResult(game);
+};
+
+const scores = games.map(formatScore);
+
+const gameResults = games.map(determineGameResult);
+
+
     return (
         <div>
             <section className='hero-section'>
@@ -120,9 +141,9 @@ const games = currentSeason?.games ?? [];
                                 <td data-label='Time: '>{game.time === '' || game.time == null ? '--' : game.time}</td>
                                 <td data-label='Competition: '>{game.competition === '' || game.competition == null ? '--' : game.competition}</td>
                                 <td data-label='Box: '>{game.box === '' || game.box == null ? '--' : game.box}</td>
-                                <td data-label='Score: '>{game.score === '' || game.score == null ? '--' : game.score}</td>
-                                <td data-label='Result: '>{game.result === '' || game.result == null ? '--' : game.result}</td>
-                                <td data-label='Record: '>{game.record === '' || game.record == null ? '--' : game.record}</td>
+                                <td data-label='Score: '>{scores[index] ?? '--'}</td>
+                                <td data-label='Result: '>{gameResults[index] ?? '--'}</td>
+                                <td data-label='Record: '>{runningRecords[index] ?? '--'}</td>
                             </tr>
                             {expandedRowIndex === index && (
                             <tr className='expanded-boxscore'>
