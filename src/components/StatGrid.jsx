@@ -10,23 +10,55 @@ import {
     conditionalAnimation
 } from '../utilities/AnimationVariants';
 
+import { calculateSeasonStats } from '../utilities/Seasonstats';
+// Order and display labels for the computed stats. Values come back from
+// calculateSeasonStats() keyed like this; anything null (not enough data
+// yet for that stat) renders as '--'.
+const COMPUTED_STAT_FIELDS = [
+    { key: 'redRockRecord', label: 'Red Rock Record' },
+    { key: 'blueRockRecord', label: 'Blue Rock Record' },
+    { key: 'coinTossRecord', label: 'Coin Toss Record' },
+    { key: 'leagueRecord', label: 'League Record' },
+    { key: 'playoffRecord', label: 'Playoff Record' },
+    { key: 'bonspielsRecord', label: 'Bonspiel Record' },
+    { key: 'hammerEfficiency', label: 'Hammer Efficiency', suffix: '%' },
+    { key: 'forceEfficiency', label: 'Force Efficiency', suffix: '%' },
+    { key: 'stealEfficiency', label: 'Steal Efficiency', suffix: '%' },
+    { key: 'stealDefence', label: 'Steal Defence', suffix: '%' },
+    { key: 'hammerFactor', label: 'Hammer Factor' },
+];
+
+function formatComputedStats(seasonStats) {
+    return COMPUTED_STAT_FIELDS.map(({ key, label, suffix }) => {
+        const value = seasonStats[key];
+        return {
+            label,
+            value: value === null || value === undefined ? '--' : `${value}${suffix ?? ''}`,
+        };
+    });
+}
 
 const StatGrid = () => {
-    const [stats, setStats] = useState(null);
+    const [teamInfo, setTeamInfo] = useState(null);
+    const [teamResults, setTeamResults] = useState(null);
     const [selectedSeasonId, setSelectedSeasonId] = useState(null);
 
     useEffect(() => {
         const fetchStatsData = async () => {
             try {
-                // const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/data/team-info.json`);
-                const response = await fetch(`${import.meta.env.BASE_URL}/data/team-info.json`);
-                if (!response.ok) {
+                const [infoResponse, resultsResponse] = await Promise.all([
+                    fetch(`${import.meta.env.BASE_URL}/data/team-info.json`),
+                    fetch(`${import.meta.env.BASE_URL}/data/team-results.json`),
+                ]);
+                if (!infoResponse.ok || !resultsResponse.ok) {
                     throw new Error('Failed to fetch stats');
                 }
-                const data = await response.json();
-                setStats(data.seasons);
-                
-                const lastActiveSeason = [...data.seasons].reverse().find(season => season.stats && season.stats.length > 0);
+                const infoData = await infoResponse.json();
+                const resultsData = await resultsResponse.json();
+                setTeamInfo(infoData);
+                setTeamResults(resultsData);
+ 
+                const lastActiveSeason = [...resultsData.seasons].reverse().find(season => season.games && season.games.length > 0);
                 if (lastActiveSeason) {
                     setSelectedSeasonId(lastActiveSeason.id);
                 }
@@ -34,7 +66,7 @@ const StatGrid = () => {
                 console.error(error);
             }
         };
-
+ 
         fetchStatsData();
     }, []);
 
@@ -53,19 +85,25 @@ const StatGrid = () => {
     };
 
 
-    if (!stats) {
+
+    if (!teamResults || !teamInfo) {
         return <div>Loading...</div>;
     }
 
-    const currentSeason = stats.find(s => s.id === selectedSeasonId);
-    const games = currentSeason?.stats ?? [];
+    const resultsSeason = teamResults.seasons.find(s => s.id === selectedSeasonId);
+    const infoSeason = teamInfo.seasons.find(s => s.id === selectedSeasonId);
+    const games = resultsSeason?.games ?? [];
+
+        const manualStats = infoSeason?.stats ?? [];
+    const computedStats = formatComputedStats(calculateSeasonStats(games));
+    const stats = [...manualStats, ...computedStats];
 
 // const games = currentSeason?.games ?? [];
-    return (
+ return (
         <>
         {/* Season Selector */}
             <div className='season-selector'>
-                {stats.filter(season => season.stats && season.stats.length > 0).map(season => (
+                {teamResults.seasons.filter(season => season.games && season.games.length > 0).map(season => (
                     <button
                         key={season.id}
                         className={`season-tab ${season.id === selectedSeasonId ? 'active' : ''}`}
@@ -79,7 +117,7 @@ const StatGrid = () => {
                 ))}
             </div>  
             <div className="stat-grid">
-                {games.map((stat, index) => (
+                {stats.map((stat, index) => (
                     <motion.div 
                         className="stat-item" 
                         key={stat.label}
@@ -99,5 +137,6 @@ const StatGrid = () => {
         </>
     );
 };
-
+ 
 export default StatGrid;
+ 

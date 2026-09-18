@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import HeroImage from '../components/HeroImage';
 import '../styles/schedule-styles.css';
-import { calculateRunningRecords, getGameTotals, isGamePlayed, getGameResult } from '../utilities/Seasonstats';
+import { calculateRunningRecords, getGameTotals, isGamePlayed, getGameResult, getEndScores } from '../utilities/Seasonstats';
 
 
 const ResultsPage = () => {
@@ -149,28 +149,39 @@ const gameResults = games.map(determineGameResult);
                             <tr className='expanded-boxscore'>
                                 <td colSpan="9">
                                     <div className='boxscore-details'>
-                                        {game.boxscore_red.length === 0 && game.boxscore_blue.length === 0 ? 'No Boxscore Available' : 'Boxscore:'}<br />
-                                        <div className='boxscores'>
-                                            <div className='red-bg'>{game.hammer === 'red' ? '🔨' : ''}</div>
-                                            {game.boxscore_red.map((end, endIndex) => (
-                                                <div key={endIndex}>
-                                                    {end === '' || end == null ? '--' : end}
+                                                                                {(() => {
+                                            const redEnds = getEndScores(game, 'red');
+                                            const blueEnds = getEndScores(game, 'blue');
+                                            const { redTotal, blueTotal } = getGameTotals(game);
+                                            const firstEndHammer = game.ends?.[0]?.hammer;
+                                            return (
+                                            <>
+                                                {!isGamePlayed(game) ? 'No Boxscore Available' : 'Boxscore:'}<br />
+                                                <div className='boxscores'>
+                                                    <div className='red-bg'>{firstEndHammer === 'red' ? '🔨' : ''}</div>
+                                                    {redEnds.map((end, endIndex) => (
+                                                        <div key={endIndex}>
+                                                            {end === '' || end == null ? '--' : end}
+                                                        </div>
+                                                    ))}
+                                                    <div className='boxscore-total'>{redTotal}</div>
                                                 </div>
-                                            ))}
-                                            <div className='boxscore-total'>{game.total_red}</div>
-                                        </div>
-                                        <div className='boxscores'>
-                                            <div className='blue-bg'>{game.hammer === 'blue' ? '🔨' : ''}</div>
-                                            {game.boxscore_blue.map((end, endIndex) => (
-                                                <div key={endIndex}>
-                                                    {end === '' || end == null ? '--' : end}
+                                                <div className='boxscores'>
+                                                    <div className='blue-bg'>{firstEndHammer === 'blue' ? '🔨' : ''}</div>
+                                                    {blueEnds.map((end, endIndex) => (
+                                                        <div key={endIndex}>
+                                                            {end === '' || end == null ? '--' : end}
+                                                        </div>
+                                                    ))}
+                                                    <div className='boxscore-total'>{blueTotal}</div>
                                                 </div>
-                                            ))}
-                                            <div className='boxscore-total'>{game.total_blue}</div>
-                                        </div>
+
+                                            </>
+                                            );
+                                        })()}
                                         {!game.coin_toss || game.coin_toss === '' ? null :
                                         <div className='coin-toss-info'>
-                                            {game.coin_toss === 'win' ? 'We won the coin toss.' : 'We lost the coin toss.'}
+                                            {game.coin_toss === 'Win' ? 'We won the coin toss.' : 'We lost the coin toss.'}
                                         </div>
                                         }
 

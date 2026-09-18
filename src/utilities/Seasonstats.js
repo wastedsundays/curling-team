@@ -105,17 +105,23 @@ export function calculateSeasonStats(games) {
     const redGames = games.filter((g) => g.team_color === "red");
     const blueGames = games.filter((g) => g.team_color === "blue");
     const leagueGames = games.filter((g) => g.game_type === "league");
-    const playoffGames = games.filter((g) => g.game_type === "playoff");
+    const playoffGames = games.filter((g) => g.game_type === "playoffs");
     const bonspielsGames = games.filter((g) => g.game_type === "bonspiel");
 
     const hammerStats = calculateHammerStats(games);
 
+    const redRecord = tallyRecord(redGames);
+    const blueRecord = tallyRecord(blueGames);
+    const leagueRecord = tallyRecord(leagueGames);
+    const playoffRecord = tallyRecord(playoffGames);
+    const bonspielsRecord = tallyRecord(bonspielsGames);
+
     return {
-        redRockRecord: formatRecord(tallyRecord(redGames)),
-        blueRockRecord: formatRecord(tallyRecord(blueGames)),
-        leagueRecord: formatRecord(tallyRecord(leagueGames)),
-        playoffRecord: formatRecord(tallyRecord(playoffGames)),
-        bonspielsRecord: formatRecord(tallyRecord(bonspielsGames)),
+        redRockRecord: formatRecord(redRecord.wins, redRecord.losses, redRecord.ties),
+        blueRockRecord: formatRecord(blueRecord.wins, blueRecord.losses, blueRecord.ties),
+        leagueRecord: formatRecord(leagueRecord.wins, leagueRecord.losses, leagueRecord.ties),
+        playoffRecord: formatRecord(playoffRecord.wins, playoffRecord.losses, playoffRecord.ties),
+        bonspielsRecord: formatRecord(bonspielsRecord.wins, bonspielsRecord.losses, bonspielsRecord.ties),
         coinTossRecord: calculateCoinTossRecord(games),
         ...hammerStats,
     };
