@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ResultsPage from './pages/ResultsPage'
 import ContactPage from './pages/ContactPage';
+import FancyStatsPage from './pages/FancyStatsPage'
 import Footer from './components/Footer'
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/results" element={<ResultsPage />} />
-          <Route path="/fancy-stats" element={<ResultsPage />} />
+          <Route path="/fancy-stats" element={<FancyStatsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
