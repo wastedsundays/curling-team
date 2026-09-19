@@ -39,7 +39,7 @@ function tallyRecord(games) {
     return record;
 }
 
-function formatRecord(wins, losses, ties) {
+function formatRecord({ wins, losses, ties }) {
     return ties > 0 ? `${wins}-${losses}-${ties}` : `${wins}-${losses}`;
 }
 
@@ -142,4 +142,4 @@ export function calculateRunningRecords(games) {
     });
 }
 
-export {  getGameResult, getGameTotals, isGamePlayed, getEndScores };
+export {  getGameResult, getGameTotals, isGamePlayed, getEndScores, hasHammerData, getPlayedEnds };
