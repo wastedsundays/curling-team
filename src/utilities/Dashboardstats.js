@@ -67,8 +67,7 @@ export function flattenEnds(games) {
 }
 
 // Ratio helpers
-
-const pct = (num, den) => (den > 0 ? Math.round((num / den) * 100) : null);
+const ratio = (num, den) => (den > 0 ? Number((num / den).toFixed(3)) : null);
 
 
 // Hammer efficiency - we score 2+ with Hammer / All ends we have hammer (blanks not included)
@@ -77,7 +76,7 @@ export function calculateHammerEfficiency(ends) {
     const hammerEnds = ends.filter((e) => e.usHadHammer);
     const bigEnds = hammerEnds.filter((e) => e.usScore >= 2);
     const blankEnds = hammerEnds.filter((e) => e.isBlank);
-    return pct(bigEnds.length, hammerEnds.length - blankEnds.length);
+    return ratio(bigEnds.length, hammerEnds.length - blankEnds.length);
 }
 
 
@@ -87,21 +86,21 @@ export function calculateForceEfficiency(ends) {
     const oppHammerEnds = ends.filter((e) => !e.usHadHammer);
     const oppScoredEnds = oppHammerEnds.filter((e) => !e.isBlank && !e.isStolen);
     const forcedEnds = oppScoredEnds.filter((e) => e.oppScore === 1);
-    return pct(forcedEnds.length, oppScoredEnds.length);
+    return ratio(forcedEnds.length, oppScoredEnds.length);
 }
 
 // Steal Efficiency - we score without hammer / Ends opponent has hammer (blanks included)
 export function calculateStealEfficiency(ends) {
     const oppHammerEnds = ends.filter((e) => !e.usHadHammer);
     const stolenEnds = oppHammerEnds.filter((e) => e.isStolen);
-    return pct(stolenEnds.length, oppHammerEnds.length);
+    return ratio(stolenEnds.length, oppHammerEnds.length);
 }
 
 // Steal Defense - ends opp scores w/ our hammer / all ends we have hammer (blanks included)
 export function calculateStealDefence(ends) {
     const usHammerEnds = ends.filter((e) => e.usHadHammer);
     const scoredAgainst = usHammerEnds.filter((e) => e.isScoredAgainstWithHammer);
-    return pct(scoredAgainst.length, usHammerEnds.length);
+    return ratio(scoredAgainst.length, usHammerEnds.length);
 }
 
 // Win percentage
@@ -115,7 +114,8 @@ export function calculateWinPercentage(games) {
         if (result === "Win") wins++;
         else if (result === "Tie") ties++;
     });
-    return Math.round(((wins * 2 + ties) / (games.length * 2)) * 100);
+
+    return Number(((wins * 2 + ties) / (games.length * 2)).toFixed(3));
 }
 
 // ---- headline bundle ------------------------------------------------------
@@ -131,19 +131,19 @@ export function calculateHeadlineStats(games, ends) {
  
     const hammerFactor =
         hammerEfficiency !== null && stealDefence !== null
-            ? hammerEfficiency - stealDefence
+            ? Number((hammerEfficiency - stealDefence).toFixed(3))
             : null;
     const withoutHammerFactor =
         forceEfficiency !== null && stealEfficiency !== null
-            ? forceEfficiency + stealEfficiency
+            ? Number((forceEfficiency + stealEfficiency).toFixed(3))
             : null;
     const combinedTeamIndex =
         hammerFactor !== null && withoutHammerFactor !== null
-            ? hammerFactor + withoutHammerFactor
+            ? Number((hammerFactor + withoutHammerFactor).toFixed(3))
             : null;
     const teamEfficiency =
         combinedTeamIndex !== null && winPercentage !== null
-            ? combinedTeamIndex + winPercentage
+            ? Number((combinedTeamIndex + winPercentage).toFixed(3))
             : null;
  
     return {

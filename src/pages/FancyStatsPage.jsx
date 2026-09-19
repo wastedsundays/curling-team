@@ -20,15 +20,15 @@ import { calculateDashboardStats, calculateRecordsDashboardStats } from '../util
 
 
 const HEADLINE_STAT_ROWS = [
-    { key: 'hammerEfficiency', label: 'Hammer Efficiency', suffix: '%' },
-    { key: 'forceEfficiency', label: 'Force Efficiency', suffix: '%' },
-    { key: 'stealEfficiency', label: 'Steal Efficiency', suffix: '%' },
-    { key: 'stealDefence', label: 'Steal Defence', suffix: '%' },
-    { key: 'hammerFactor', label: 'Hammer Factor', suffix: '' },
-    { key: 'withoutHammerFactor', label: 'Without Hammer Factor', suffix: '' },
-    { key: 'combinedTeamIndex', label: 'Combined Team Index', suffix: '' },
-    { key: 'winPercentage', label: 'Win %', suffix: '%' },
-    { key: 'teamEfficiency', label: 'Team Efficiency', suffix: '' },
+    { key: 'hammerEfficiency', label: 'Hammer Efficiency' },
+    { key: 'forceEfficiency', label: 'Force Efficiency' },
+    { key: 'stealEfficiency', label: 'Steal Efficiency' },
+    { key: 'stealDefence', label: 'Steal Defence' },
+    { key: 'hammerFactor', label: 'Hammer Factor' },
+    { key: 'withoutHammerFactor', label: 'Without Hammer Factor' },
+    { key: 'combinedTeamIndex', label: 'Combined Team Index' },
+    { key: 'winPercentage', label: 'Win %' },
+    { key: 'teamEfficiency', label: 'Team Efficiency' },
 ];
  
 const RECORDS_STAT_ROWS = [

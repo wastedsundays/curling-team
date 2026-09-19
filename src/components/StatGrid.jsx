@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import LinkButton from '../components/LinkButton';
 //eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import {
@@ -15,17 +17,17 @@ import { calculateSeasonStats } from '../utilities/Seasonstats';
 // calculateSeasonStats() keyed like this; anything null (not enough data
 // yet for that stat) renders as '--'.
 const COMPUTED_STAT_FIELDS = [
-    { key: 'redRockRecord', label: 'Red Rock Record' },
-    { key: 'blueRockRecord', label: 'Blue Rock Record' },
+    // { key: 'redRockRecord', label: 'Red Rock Record' },
+    // { key: 'blueRockRecord', label: 'Blue Rock Record' },
     { key: 'coinTossRecord', label: 'Coin Toss Record' },
-    { key: 'leagueRecord', label: 'League Record' },
-    { key: 'playoffRecord', label: 'Playoff Record' },
-    { key: 'bonspielsRecord', label: 'Bonspiel Record' },
-    { key: 'hammerEfficiency', label: 'Hammer Efficiency', suffix: '%' },
-    { key: 'forceEfficiency', label: 'Force Efficiency', suffix: '%' },
-    { key: 'stealEfficiency', label: 'Steal Efficiency', suffix: '%' },
-    { key: 'stealDefence', label: 'Steal Defence', suffix: '%' },
-    { key: 'hammerFactor', label: 'Hammer Factor' },
+    // { key: 'leagueRecord', label: 'League Record' },
+    // { key: 'playoffRecord', label: 'Playoff Record' },
+    // { key: 'bonspielsRecord', label: 'Bonspiel Record' },
+    // { key: 'hammerEfficiency', label: 'Hammer Efficiency', suffix: '%' },
+    // { key: 'forceEfficiency', label: 'Force Efficiency', suffix: '%' },
+    // { key: 'stealEfficiency', label: 'Steal Efficiency', suffix: '%' },
+    // { key: 'stealDefence', label: 'Steal Defence', suffix: '%' },
+    // { key: 'hammerFactor', label: 'Hammer Factor' },
 ];
 
 function formatComputedStats(seasonStats) {
@@ -134,6 +136,16 @@ const StatGrid = () => {
                     </motion.div>
                 ))}
             </div>
+                    <motion.div 
+                        className="stat-item" 
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportSettings}
+                        variants={getVariantByIndex(0)}
+                        transition={{...transitions.smooth,
+                            delay: getStaggerDelay(0)
+                        }}
+                    ><LinkButton to="/fancy-stats">See the fancy stats</LinkButton></motion.div>
         </>
     );
 };
