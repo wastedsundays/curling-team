@@ -275,7 +275,7 @@ export function calculateRecordsStats(games) {
     const scoringEnds = flattenScoringEnds(games);
     const leagueGames = games.filter((g) => g.game_type === 'league');
     const bonspielGames = games.filter((g) => g.game_type === 'bonspiel');
-    const playoffGames = games.filter((g) => g.game_type === 'playoff');
+    const playoffGames = games.filter((g) => g.game_type === 'playoffs');
  
     return {
         overallRecord: formatRecord(tallyRecord(games)),
@@ -293,4 +293,15 @@ export function calculateRecordsStats(games) {
 export function calculateRecordsDashboardStats(seasons, filters = {}) {
     const games = filterGames(seasons, filters);
     return calculateRecordsStats(games);
+}
+
+// single panel combined bundle
+
+export function calculateAllDashboardStats(seasons, filters = {}) {
+    const games = filterGames(seasons, filters);
+    const ends = flattenEnds(games);
+    return {
+        ...calculateHeadlineStats(games, ends),
+        ...calculateRecordsStats(games),
+    };
 }

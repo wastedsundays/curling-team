@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import StatsPanel from '../components/StatsPanel';
 import PointsPerEndTable from '../components/PointsPerEndTable';
-import { calculateDashboardStats, calculateRecordsDashboardStats } from '../utilities/Dashboardstats';
+import { calculateAllDashboardStats } from '../utilities/Dashboardstats';
 // eslint-disable-next-line no-unused-vars
 // import { motion } from 'framer-motion';
 // import { fadeInLeft,
@@ -19,7 +19,7 @@ import { calculateDashboardStats, calculateRecordsDashboardStats } from '../util
 // import '../styles/about-styles.css';
 
 
-const HEADLINE_STAT_ROWS = [
+const ALL_STAT_ROWS = [
     { key: 'hammerEfficiency', label: 'Hammer Efficiency' },
     { key: 'forceEfficiency', label: 'Force Efficiency' },
     { key: 'stealEfficiency', label: 'Steal Efficiency' },
@@ -29,9 +29,6 @@ const HEADLINE_STAT_ROWS = [
     { key: 'combinedTeamIndex', label: 'Combined Team Index' },
     { key: 'winPercentage', label: 'Win %' },
     { key: 'teamEfficiency', label: 'Team Efficiency' },
-];
- 
-const RECORDS_STAT_ROWS = [
     { key: 'overallRecord', label: 'Overall Record' },
     { key: 'leagueRecord', label: 'League Record' },
     { key: 'bonspielRecord', label: 'Bonspiel Record' },
@@ -78,19 +75,13 @@ const FancyStatsPage = () => {
             </section>
  
             <StatsPanel
-                title="Hammer / Steal Efficiency"
+                title="Team Stats"
                 teamResults={teamResults}
-                calculateStats={calculateDashboardStats}
-                statRows={HEADLINE_STAT_ROWS}
+                calculateStats={calculateAllDashboardStats}
+                statRows={ALL_STAT_ROWS}
+                renderExtra={(stats) => ( <PointsPerEndTable pointsPerEnd={stats.pointsPerEnd} /> )}
             />
  
-            <StatsPanel
-                title="Records & Scoring"
-                teamResults={teamResults}
-                calculateStats={calculateRecordsDashboardStats}
-                statRows={RECORDS_STAT_ROWS}
-                renderExtra={(stats) => <PointsPerEndTable pointsPerEnd={stats.pointsPerEnd} />}
-            />
         </div>
     );
 };

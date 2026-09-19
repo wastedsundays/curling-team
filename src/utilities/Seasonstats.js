@@ -28,6 +28,7 @@ function getGameResult(game) {
 }
 
 function tallyRecord(games) {
+    console.log("tallyRecord called with games:", games);
     const record = { wins: 0, losses: 0, ties: 0 };
     games.forEach((game) => {
         if (!isGamePlayed(game)) return undefined;
@@ -39,7 +40,7 @@ function tallyRecord(games) {
     return record;
 }
 
-function formatRecord({ wins, losses, ties }) {
+function formatRecord( wins, losses, ties ) {
     return ties > 0 ? `${wins}-${losses}-${ties}` : `${wins}-${losses}`;
 }
 
@@ -102,28 +103,29 @@ function calculateCoinTossRecord(games) {
 }
 
 export function calculateSeasonStats(games) {
-    // const redGames = games.filter((g) => g.team_color === "red");
-    // const blueGames = games.filter((g) => g.team_color === "blue");
-    // const leagueGames = games.filter((g) => g.game_type === "league");
-    // const playoffGames = games.filter((g) => g.game_type === "playoffs");
-    // const bonspielsGames = games.filter((g) => g.game_type === "bonspiel");
+    const redGames = games.filter((g) => g.team_color === "red");
+    const blueGames = games.filter((g) => g.team_color === "blue");
+    const leagueGames = games.filter((g) => g.game_type === "league");
+    const playoffGames = games.filter((g) => g.game_type === "playoffs");
+    const bonspielsGames = games.filter((g) => g.game_type === "bonspiel");
 
     const hammerStats = calculateHammerStats(games);
 
-    // const redRecord = tallyRecord(redGames);
-    // const blueRecord = tallyRecord(blueGames);
-    // const leagueRecord = tallyRecord(leagueGames);
-    // const playoffRecord = tallyRecord(playoffGames);
-    // const bonspielsRecord = tallyRecord(bonspielsGames);
+
+    const redRecord = tallyRecord(redGames);
+    const blueRecord = tallyRecord(blueGames);
+    const leagueRecord = tallyRecord(leagueGames);
+    const playoffRecord = tallyRecord(playoffGames);
+    const bonspielsRecord = tallyRecord(bonspielsGames);
 
     return {
-        // redRockRecord: formatRecord(redRecord.wins, redRecord.losses, redRecord.ties),
-        // blueRockRecord: formatRecord(blueRecord.wins, blueRecord.losses, blueRecord.ties),
-        // leagueRecord: formatRecord(leagueRecord.wins, leagueRecord.losses, leagueRecord.ties),
-        // playoffRecord: formatRecord(playoffRecord.wins, playoffRecord.losses, playoffRecord.ties),
-        // bonspielsRecord: formatRecord(bonspielsRecord.wins, bonspielsRecord.losses, bonspielsRecord.ties),
+        redRockRecord: formatRecord(redRecord.wins, redRecord.losses, redRecord.ties),
+        blueRockRecord: formatRecord(blueRecord.wins, blueRecord.losses, blueRecord.ties),
+        leagueRecord: formatRecord(leagueRecord.wins, leagueRecord.losses, leagueRecord.ties),
+        playoffRecord: formatRecord(playoffRecord.wins, playoffRecord.losses, playoffRecord.ties),
+        bonspielsRecord: formatRecord(bonspielsRecord.wins, bonspielsRecord.losses, bonspielsRecord.ties),
         coinTossRecord: calculateCoinTossRecord(games),
-        // ...hammerStats,
+        ...hammerStats,
     };
 }
 
