@@ -1,7 +1,7 @@
-const StatsPanel = ({ title, stats, statRows, onStatClick, selectedKey }) => (
+const StatTileGrid = ({ title, stats, statRows, onStatClick, selectedKey }) => (
     <section className="section-spacing">
         {title && <h2>{title}</h2>}
-        <div className={`stats-panel ${title?.replace(/\s+/g, '-').replace(/&/g,'and').toLowerCase()}` }>
+        <div className="stat-grid">
             {statRows.map(({ key, label, suffix, decimals, chartable }) => {
                 const value = stats[key];
                 const display =
@@ -18,8 +18,7 @@ const StatsPanel = ({ title, stats, statRows, onStatClick, selectedKey }) => (
                         tabIndex={isClickable ? 0 : undefined}
                     >
                         <span className="stat-value">{display}</span>
-                        <span className="stat-label">{label}
-                        </span>
+                        <span className="stat-label">{label}</span>
                     </div>
                 );
             })}
@@ -27,4 +26,4 @@ const StatsPanel = ({ title, stats, statRows, onStatClick, selectedKey }) => (
     </section>
 );
  
- export default StatsPanel;
+export default StatTileGrid;

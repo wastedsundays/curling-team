@@ -86,7 +86,6 @@ const scores = games.map(formatScore);
 
 const gameResults = games.map(determineGameResult);
 
-
     return (
         <div>
             <section className='hero-section'>
@@ -139,7 +138,7 @@ const gameResults = games.map(determineGameResult);
                                 <td data-label='Opponent: '>{game.opponent === '' || game.opponent == null ? '--' : game.opponent}</td>
                                 <td data-label='Sheet: '>{game.sheet === '' || game.sheet == null ? '--' : game.sheet}</td>
                                 <td data-label='Time: '>{game.time === '' || game.time == null ? '--' : game.time}</td>
-                                <td data-label='Competition: '>{game.competition === '' || game.competition == null ? '--' : game.competition}</td>
+                                <td className={`${game.game_type}`} data-label='Competition: '>{game.competition === '' || game.competition == null ? '--' : game.competition}</td>
                                 <td data-label='Box: '>{game.box === '' || game.box == null ? '--' : game.box}</td>
                                 <td data-label='Score: '>{scores[index] ?? '--'}</td>
                                 <td data-label='Result: '>{gameResults[index] ?? '--'}</td>

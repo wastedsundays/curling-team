@@ -1,0 +1,22 @@
+.stats-panel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (min-width: 46rem) {
+    .stats-panel {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 56rem) {
+    .stats-panel {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media screen and (min-width: 80rem) {
+    .stats-panel {
+        grid-template-columns: repeat(9, 1fr);
+    }
+}

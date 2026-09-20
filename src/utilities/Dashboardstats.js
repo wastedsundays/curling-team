@@ -305,3 +305,23 @@ export function calculateAllDashboardStats(seasons, filters = {}) {
         ...calculateRecordsStats(games),
     };
 }
+
+export function calculateStatTrend(seasons, filters, statKey) {
+    const games = filterGames(seasons, filters);
+    const sortedGames = [...games].sort((a, b) => (a.date ?? '').localeCompare(b.date ?? ''));
+ 
+    return sortedGames.map((game, index) => {
+        const gamesSoFar = sortedGames.slice(0, index + 1);
+        const ends = flattenEnds(gamesSoFar);
+        const stats = {
+            ...calculateHeadlineStats(gamesSoFar, ends),
+            ...calculateRecordsStats(gamesSoFar),
+        };
+        return {
+            gameId: game.id,
+            date: game.date,
+            opponent: game.opponent,
+            value: stats[statKey],
+        };
+    });
+}
