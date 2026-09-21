@@ -94,11 +94,11 @@ const FancyStatsPage = () => {
         <div>
             <section className="section-spacing">
                 <h1>Fancy Stats</h1>
-                <DashboardFilters seasons={teamResults.seasons} filters={filters} onChange={setFilters} />
+
             </section>
- 
+            <DashboardFilters seasons={teamResults.seasons} filters={filters} onChange={setFilters} />
             <StatsPanel
-                title="Records & Averages"
+                title="Records"
                 stats={stats}
                 statRows={RECORDS_STAT_ROWS}
                 onStatClick={setSelectedStatKey}
