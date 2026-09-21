@@ -1,34 +1,40 @@
-.schedule-table {
+.schedule-table, .points-per-end-table {
     border-collapse: collapse;
     width: 100%;
     max-width: 62.5rem;
 }
 
-.schedule-table thead {
+.points-per-end-table {
+    max-width: 47.5rem;
+    background-color: var(--dark-bg-transparent);
+    
+}
+
+.schedule-table thead, .points-per-end-table thead {
     display: none;
 }
 
- .schedule-table, 
-  .schedule-table tbody, 
-  .schedule-table tr, 
-  .schedule-table td {
+ .schedule-table, .points-per-end-table
+  .schedule-table tbody, .points-per-end-table tbody, 
+  .schedule-table tr, .points-per-end-table tr,
+  .schedule-table td , .points-per-end-table td {
     display: block;
     /* width: 100%; */
   }
 
-    .schedule-table tr {
+    .schedule-table tr, .points-per-end-table tr {
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     padding: 0.5rem;
     border-radius: 4px;
   }
 
-    .schedule-table td {
+    .schedule-table td, .points-per-end-table td {
     /* text-align: center; */
     position: relative;
   }
 
-  .schedule-table td::before {
+  .schedule-table td::before, .points-per-end-table td::before {
     content: attr(data-label);
     left: 0;
     width: 50%;
@@ -40,41 +46,41 @@
 
 
 @media (min-width: 50rem) {
-    .schedule-table thead {
+    .schedule-table thead, .points-per-end-table thead {
         display: table-header-group;
         border-bottom: .125rem solid var(--red-primary)
     }
 
-  .schedule-table {
+  .schedule-table, .points-per-end-table {
     display: table;
     margin: 0 auto;
   }
 
-  .schedule-table tbody {
+  .schedule-table tbody, .points-per-end-table tbody {
     display: table-row-group;
     width: fit-content;
   }
   
-  .schedule-table tr {
+  .schedule-table tr, .points-per-end-table tr {
     display: table-row;
     border: none;
     margin-bottom: 0;
     padding: 0;
     width: fit-content;
   }
-  .schedule-table td {
+  .schedule-table td, .points-per-end-table td {
     display: table-cell;
     text-align: left;
     width: fit-content;
     
   }
 
-  .schedule-table th, .schedule-table td {
+  .schedule-table th, .points-per-end-table th,.schedule-table td, .points-per-end-table td {
     padding: 0.5rem 1rem;
     border-bottom: 1px solid var(--grey-600);
   }
 
-  .schedule-table td::before {
+  .schedule-table td::before, .points-per-end-table td::before {
     display: none;
   }
 }

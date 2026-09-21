@@ -19,12 +19,12 @@ const PointsPerEndTable = ({ pointsPerEnd }) => {
             <tbody>
                 {pointsPerEnd.map((row) => (
                     <tr key={row.endNumber}>
-                        <td>{row.endNumber}</td>
-                        <td>{row.pointsFor}</td>
-                        <td>{row.pointsAgainst}</td>
-                        <td>{row.avgFor ?? '--'}</td>
-                        <td>{row.avgAgainst ?? '--'}</td>
-                        <td>{row.endsPlayed}</td>
+                        <td data-label="End No: ">{row.endNumber}</td>
+                        <td data-label="Points For: ">{row.pointsFor}</td>
+                        <td data-label="Points Against: ">{row.pointsAgainst}</td>
+                        <td data-label="Avg For: ">{row.avgFor ?? '--'}</td>
+                        <td data-label="Avg Against: ">{row.avgAgainst ?? '--'}</td>
+                        <td data-label="Ends Played: ">{row.endsPlayed}</td>
                     </tr>
                 ))}
             </tbody>
