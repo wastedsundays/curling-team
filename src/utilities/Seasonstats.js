@@ -28,7 +28,6 @@ function getGameResult(game) {
 }
 
 function tallyRecord(games) {
-    console.log("tallyRecord called with games:", games);
     const record = { wins: 0, losses: 0, ties: 0 };
     games.forEach((game) => {
         if (!isGamePlayed(game)) return undefined;

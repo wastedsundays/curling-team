@@ -51,15 +51,23 @@
   max-height: 80vh;
   /* height: 80vh; */
   overflow-y: auto;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 15px rgba(220,220,220, 0.5);
   @media (min-width: 50rem) {
     height: 80vh;
     display: grid;
     grid-template-columns: 30% 70%;
     grid-template-rows: 1fr;
+    overscroll-behavior: contain;
   }
 
+}
+
+button.modal-close {
+  padding: 0;
+  width: fit-content;
 }
 
 .player-modal-info h3 {
@@ -80,12 +88,25 @@
 
 }
 
+.player-modal-header {
+  padding: 2rem 0 1rem 0;
+  color: white;
+  position: sticky;
+  top: 0;
+  background: var(--grey-900);
+}
+
 .player-modal-info {
   grid-column: 2;
   grid-row: 1;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
   color: white;
   position: relative;
+
+  @media screen and (min-width: 50rem) {
+    overflow-y: auto;
+  }
+  /* overflow-y: auto; */
 }
 
 .player-modal-details {

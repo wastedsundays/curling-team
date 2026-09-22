@@ -17,8 +17,11 @@ const Navigation = ({ isNavOpen, toggleNav }) => {
             case location.pathname === '/results':
                 setActiveTab(2);
                 break;
-            case location.pathname === '/contact':
+            case location.pathname === '/fancy-stats':
                 setActiveTab(3);
+                break;
+            case location.pathname === '/contact':
+                setActiveTab(4);
                 break;
             default:
                 setActiveTab(null);
@@ -36,7 +39,8 @@ const Navigation = ({ isNavOpen, toggleNav }) => {
                 <li className={activeTab === 0 ? 'active-header-link' : 'header-link'}><Link to='/' onClick={handleLinkClick}>Home</Link></li>
                 <li className={activeTab === 1 ? 'active-header-link' : 'header-link'}><Link to='/about' onClick={handleLinkClick}>About</Link></li>
                 <li className={activeTab === 2 ? 'active-header-link' : 'header-link'}><Link to='/results' onClick={handleLinkClick}>Results</Link></li>
-                <li className={activeTab === 3 ? 'active-header-link' : 'header-link'}><Link to='/contact' onClick={handleLinkClick}>Contact</Link></li>
+                <li className={activeTab === 3 ? 'active-header-link' : 'header-link'}><Link to='/fancy-stats' onClick={handleLinkClick}>Fancy Stats</Link></li>
+                <li className={activeTab === 4 ? 'active-header-link' : 'header-link'}><Link to='/contact' onClick={handleLinkClick}>Contact</Link></li>
             </ul>
         </nav>
     );

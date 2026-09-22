@@ -14,6 +14,8 @@ const PlayerModal = ({ player, onClose }) => {
         favoriteCurler,
     } = player;
 
+    const currentYear = new Date().getFullYear();
+
     return (
         <div className='player-modal-overlay' onClick={onClose}>
             <motion.div
@@ -29,11 +31,13 @@ const PlayerModal = ({ player, onClose }) => {
                     <img src={largePhoto || '/placeholder-avatar.jpg'} alt={`${name}`} />
                 </div>
                 <div className='player-modal-info'>
-                    <h3 className='margin-bottom-0'>{name}</h3>
-                    <h4 className='margin-top-0'>{position}</h4>
+                    <div className='player-modal-header'>
+                        <h3 className='margin-bottom-0'>{name}</h3>
+                        <h4 className='margin-top-0'>{position}</h4>
+                    </div>
                     <dl className='player-modal-details'>
                         <dt><b>Years Curled:</b></dt>
-                        <dd>{yearsPlaying}</dd>
+                        <dd>{currentYear - yearsPlaying}</dd>
                         <dt><b>From:</b></dt>
                         <dd>{hometown}</dd>
                         <dt><b>Occupation:</b></dt>
