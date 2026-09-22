@@ -9,6 +9,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <title>Slide & the Family Stone - Funky Curling</title>
   </head>
+  <!-- Google tag (gtag.js) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYJJGNWQYG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CYJJGNWQYG');
+
+
+</script> -->
+
+<script>
+  // Wait 3 seconds after page load before loading GA
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CYJJGNWQYG';
+      document.head.appendChild(script);
+      
+      script.onload = function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CYJJGNWQYG');
+      };
+    }, 3000);
+  });
+</script>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
